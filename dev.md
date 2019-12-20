@@ -1,12 +1,20 @@
+DEV:
+
 symfony server:start
 php bin/console make:controller
 php bin/console make:entity
 
+psql -d ComedyClub -U postgres -W
+
+
+CLIENT INSTALLATION:
+
 php bin/console doctrine:database:create
-php bin/console doctrine:database:import
+php bin/console doctrine:migrations:diff
+php bin/console doctrine:migrations:migrate
 
-doctrine:schema:update
 
+FIX:
 
 Enable TLS:
 
