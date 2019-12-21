@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!--FAVICON-->
+        <link rel="icon" href="{{ asset('assets/img/favicon.png') }}"/>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Theme CSS -->
+        <link href="{{ asset('assets/css/clean-blog.min.css') }}" rel="stylesheet">
+
+        <!-- FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap" rel="stylesheet">
+
+        <title>{% block title %}Avignon Comedy Club{% endblock %}</title>
+        
+        {% block stylesheets %}
+        <style>
+        
+            .sidenav {
+                height: 100%;
+                width: 16.5vw;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                font-family: 'Quicksand', sans-serif;
+                background-color: #263544;
+                overflow-x: hidden;
+                padding-top: 20px;
+            }
+
+            .sidenav a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 1em;
+                color: #b7c0cd;
+                display: block;
+            }
+
+            .sidenav a:hover {
+                color: #f1f1f1;
+            }
+
+            .main {
+                margin-left: 16.5vw;
+            }
+
+            .avatar {
+                margin-right: 10px;
+                width: 40px;
+                border-radius: 50%;
+                border: 2px solid #fff;
+                box-shadow: 0 5px 10px 0 rgba(43,43,43,.2);
+            }
+
+            @media screen and (max-height: 450px) {
+                .sidenav {padding-top: 15px;}
+                .sidenav a {font-size: 18px;}
+            }
+
+        </style>
+        {% endblock %}
+    </head>
+    <body>
+
+        <div class="sidenav">
+            <a href="#">Dashboard</a>
+            <a href="#">Articles</a>
+            <a href="#">Evènements</a>
+            <a href="#">Artistes</a>
+            <a href="#">Utilisateurs</a>
+        </div>
+
+        <div class="main">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mr-0">
+
+                        <li class="nav-item">
+                            <div style="display: inline-block; position: relative;">
+
+                                <div class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="https://colorlib.com//polygon/admindek/files/assets/images/avatar-4.jpg" alt="Avatar" class="avatar">
+                                    <span>Labrak Yanis</span>
+                                </div>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </nav>
+
+            <div class="container" style="padding-top: 2%;">
+                {% block pageName %}{% endblock %}
+            </div>
+
+            <hr>
+
+            <div class="container" style="padding-top: 2%;">
+                {% block body %}{% endblock %}
+            </div>
+
+        </div>
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

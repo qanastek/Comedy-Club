@@ -25,13 +25,7 @@
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
         <title>{% block title %}Avignon Comedy Club{% endblock %}</title>
-        {% block stylesheets %}
-        <style>
-            .nav li a {
-                color: #fe8155 !important;   
-            }
-        </style>
-        {% endblock %}
+        {% block stylesheets %}{% endblock %}
     </head>
     <body>
 
@@ -67,9 +61,7 @@
             <!-- /.container -->
         </nav>
 
-        <div class="container" style="padding-top: 5%;">
-            {% block body %}{% endblock %}
-        </div>
+        {% block body %}{% endblock %}
 
         <hr>
 
