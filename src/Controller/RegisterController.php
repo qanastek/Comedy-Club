@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class RegisterController extends Controller
 {
     /**
-     * @Route("/register", name="register")
+     * @Route("/admin/register", name="register")
      */
     public function index()
     {

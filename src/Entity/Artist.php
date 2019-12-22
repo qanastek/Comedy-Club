@@ -48,14 +48,8 @@ class Artist
      */
     private $instagram_url;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Event", mappedBy="artist")
-     */
-    private $events;
-
     public function __construct()
     {
-        parent::__construct();
         $this->events = new ArrayCollection();
     }
 
@@ -96,34 +90,6 @@ class Artist
     public function setInstagramUrl(?string $instagram_url): self
     {
         $this->instagram_url = $instagram_url;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Event[]
-     */
-    public function getEvents(): Collection
-    {
-        return $this->events;
-    }
-
-    public function addEvent(Event $event): self
-    {
-        if (!$this->events->contains($event)) {
-            $this->events[] = $event;
-            $event->addArtist($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEvent(Event $event): self
-    {
-        if ($this->events->contains($event)) {
-            $this->events->removeElement($event);
-            $event->removeArtist($this);
-        }
 
         return $this;
     }

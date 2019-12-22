@@ -1,0 +1,71 @@
+{% extends 'baseDashboard.html.twig' %}
+
+{% block title %}Hello ListArtistsController!{% endblock %}
+
+{% block body %}
+<style>
+.fa-stack a {
+  display: inline;
+}
+</style>
+
+<a class="btn btn-primary" style="margin-bottom: 2%;" href="{{ path('add_artist') }}" role="button">Add artist</a>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Réseaux sociaux</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for artist in artists %}
+      <tr>
+        <td>
+          <img src="{{ artist.image|e }}" class="img-fluid img-thumbnail">
+        </td>
+        <td>{{ artist.name|e }}</td>
+        <td>{{ artist.description|e }}</td>
+
+        <td style="letter-spacing: 1em; width: 195px;">
+
+          {% if artist.getFacebookUrl() %}
+            <a href="{{ artist.getFacebookUrl()|e }}"><i class="fab fa-facebook"></i></a>
+          {% endif %}
+          
+          {% if artist.getInstagramUrl() %}
+            <a href="{{ artist.getInstagramUrl()|e }}"><i class="fab fa-instagram"></i></a>
+          {% endif %}
+          
+          {% if artist.getTwitterUrl() %}
+            <a href="{{ artist.getTwitterUrl()|e }}"><i class="fab fa-twitter-square"></i></a>
+          {% endif %}
+
+        </td>
+
+        <td style="letter-spacing: 1em; text-align: right; width: 130px;">
+
+          <a href="{{ path('modify_artist') }}?id={{ artist.getId()|e }}">
+            <i 
+              class="modify far fa-edit"
+              style="color: green; cursor: pointer;"
+            ></i>
+          </a>
+
+          <a href="{{ path('delete_artist') }}?id={{ artist.getId()|e }}">
+            <i
+              class="delete far fa-trash-alt"
+              style="color: red; cursor: pointer;"
+            ></i>
+          </a>
+          
+        </td>
+
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

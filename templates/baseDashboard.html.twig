@@ -19,6 +19,12 @@
         <!-- FONTS -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
 
+        <!-- JQuery -->
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+
         <!-- Custom Fonts -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -78,10 +84,10 @@
     <body>
 
         <div class="sidenav">
-            <a href="#">Dashboard</a>
+            <a href="{{ path('dashboard') }}">Dashboard</a>
             <a href="#">Articles</a>
             <a href="#">Evènements</a>
-            <a href="#">Artistes</a>
+            <a href="{{ path('list_artists') }}">Artistes</a>
             <a href="#">Utilisateurs</a>
         </div>
 
@@ -118,13 +124,26 @@
 
             </nav>
 
-            <div class="container" style="padding-top: 2%;">
+            <div class="container" style="padding-top: 2%; text-transform: capitalize;">
                 {% block pageName %}{% endblock %}
             </div>
 
             <hr>
 
             <div class="container" style="padding-top: 2%;">
+            
+                {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+                {% endfor %}
+
+                {% for message in app.flashes('danger') %}
+                <div class="alert alert-danger">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                
                 {% block body %}{% endblock %}
             </div>
 
