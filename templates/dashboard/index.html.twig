@@ -6,4 +6,13 @@
 
 {% block body %}
 Contenu
+
+{% if is_granted('ROLE_ADMIN') %}
+    <p>Je suis admin</p>
+{% endif %}
+
+{% if is_granted('ROLE_USER') %}
+    <p>Je suis user</p>
+{% endif %}
+
 {% endblock %}
