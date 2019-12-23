@@ -58,6 +58,12 @@ class Artist
         return $this->id;
     }
 
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+        return $this;
+    }
+
     public function getFacebookUrl(): ?string
     {
         return $this->facebook_url;
@@ -128,5 +134,9 @@ class Artist
         $this->description = $description;
 
         return $this;
+    }
+
+    public function __toString() {
+        return "ID: " . $this->getId() . ", Name: " . $this->getName();
     }
 }

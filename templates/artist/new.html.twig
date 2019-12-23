@@ -1,0 +1,12 @@
+{% extends 'baseDashboard.html.twig' %}
+
+{% block title %}New Artist{% endblock %}
+
+{% block body %}
+
+    <a class="btn btn-primary" href="{{ path('artist_index') }}">Back to list</a>
+
+    <h1>Create new Artist</h1>
+
+    {{ include('artist/_form.html.twig') }}
+{% endblock %}

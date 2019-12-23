@@ -25,6 +25,16 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
 
+        <script
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+
+        <!-- JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
         <!-- Custom Fonts -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -85,10 +95,10 @@
 
         <div class="sidenav">
             <a href="{{ path('dashboard') }}">Dashboard</a>
-            <a href="#">Articles</a>
-            <a href="#">Evènements</a>
-            <a href="{{ path('list_artists') }}">Artistes</a>
-            <a href="#">Utilisateurs</a>
+            <a href="{{ path('dashboard') }}">Articles Blog</a>
+            <a href="{{ path('event_index') }}">Evènements</a>
+            <a href="{{ path('artist_index') }}">Artistes</a>
+            <a href="{{ path('user_index') }}">Utilisateurs</a>
         </div>
 
         <div class="main">
@@ -103,7 +113,7 @@
                     <ul class="navbar-nav ml-auto mr-0">
 
                         <li class="nav-item">
-                            <div style="display: inline-block; position: relative;">
+                            <div class="dropdown" style="display: inline-block; position: relative;">
 
                                 <div class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <img src="https://colorlib.com//polygon/admindek/files/assets/images/avatar-4.jpg" alt="Avatar" class="avatar">
@@ -111,9 +121,9 @@
                                 </div>
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="#">Settings</a>
+                                    <a class="dropdown-item" href="#">Profile</a>
+                                    <a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a>
                                 </div>
 
                             </div>

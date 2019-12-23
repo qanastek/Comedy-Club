@@ -1,0 +1,14 @@
+{% extends 'baseDashboard.html.twig' %}
+
+{% block title %}Edit Artist{% endblock %}
+
+{% block body %}
+
+    <a class="btn btn-primary" href="{{ path('artist_index') }}">back to list</a>
+
+    <h1>Edit Artist</h1>
+
+    {{ include('artist/_form.html.twig', {'button_label': 'Update'}) }}
+
+    {{ include('artist/_delete_form.html.twig') }}
+{% endblock %}

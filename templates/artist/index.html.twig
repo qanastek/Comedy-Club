@@ -1,0 +1,74 @@
+{% extends 'baseDashboard.html.twig' %}
+
+{% block title %}Artists{% endblock %}
+
+{% block pageName %}Artists{% endblock %}
+
+{% block body %}
+    <h1>Artist index</h1>
+
+    <a class="btn btn-primary" style="margin-bottom: 2%;" href="{{ path('artist_new') }}" role="button">Add artist</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Réseaux sociaux</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artist in artists %}
+            <tr>
+                <td>
+                    <img 
+                        src="/uploads/artists/{{ artist.image }}"
+                        class="img-fluid img-thumbnail"
+                        style="width: 10vw; height: 10vw; overflow: hidden; object-fit: cover; border-radius: 25vw;"
+                    >
+                </td>
+                <td>{{ artist.name }}</td>
+                <td>{{ artist.description }}</td>
+
+                <td style="letter-spacing: 1em; width: 195px;">
+
+                    {% if artist.facebookUrl %}
+                        <a href="{{ artist.facebookUrl }}"><i class="fab fa-facebook"></i></a>
+                    {% endif %}
+                    
+                    {% if artist.instagramUrl %}
+                        <a href="{{ artist.instagramUrl }}"><i class="fab fa-instagram"></i></a>
+                    {% endif %}
+                    
+                    {% if artist.instagramUrl %}
+                        <a href="{{ artist.instagramUrl }}"><i class="fab fa-twitter-square"></i></a>
+                    {% endif %}
+
+                </td>
+                
+                <td>
+                    <a href="{{ path('artist_edit', {'id': artist.id}) }}">
+                        <i 
+                        class="modify far fa-edit"
+                        style="color: green; cursor: pointer;"
+                        ></i>
+                    </a>
+                    <a href="{{ path('artist_delete', {'id': artist.id}) }}">
+                        <i
+                        class="delete far fa-trash-alt"
+                        style="color: red; cursor: pointer;"
+                        ></i>
+                    </a>
+                </td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

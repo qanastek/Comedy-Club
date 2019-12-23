@@ -1,0 +1,27 @@
+{% extends 'baseDashboard.html.twig' %}
+
+{% block title %}GalleryEntity{% endblock %}
+{% block pageName %}GalleryEntity{% endblock %}
+
+{% block body %}
+    <h1>GalleryEntity</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ gallery_entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ gallery_entity.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('gallery_entity_index') }}">back to list</a>
+
+    <a href="{{ path('gallery_entity_edit', {'id': gallery_entity.id}) }}">edit</a>
+
+    {{ include('gallery_entity/_delete_form.html.twig') }}
+{% endblock %}

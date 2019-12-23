@@ -1,0 +1,63 @@
+{% extends 'baseDashboard.html.twig' %}
+
+{% block title %}Website index{% endblock %}
+
+{% block body %}
+    <h1>Website index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Motto</th>
+                <th>Favicon</th>
+                <th>Logo</th>
+                <th>Cover_home</th>
+                <th>Company_name</th>
+                <th>Phone_contact</th>
+                <th>Phone_book</th>
+                <th>Email</th>
+                <th>Location_informations</th>
+                <th>Facebook_url</th>
+                <th>Instagram_url</th>
+                <th>Twitter_url</th>
+                <th>Terms_of_use</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for website in websites %}
+            <tr>
+                <td>{{ website.id }}</td>
+                <td>{{ website.name }}</td>
+                <td>{{ website.description }}</td>
+                <td>{{ website.motto }}</td>
+                <td>{{ website.favicon }}</td>
+                <td>{{ website.logo }}</td>
+                <td>{{ website.coverHome }}</td>
+                <td>{{ website.companyName }}</td>
+                <td>{{ website.phoneContact }}</td>
+                <td>{{ website.phoneBook }}</td>
+                <td>{{ website.email }}</td>
+                <td>{{ website.locationInformations }}</td>
+                <td>{{ website.facebookUrl }}</td>
+                <td>{{ website.instagramUrl }}</td>
+                <td>{{ website.twitterUrl }}</td>
+                <td>{{ website.termsOfUse }}</td>
+                <td>
+                    <a href="{{ path('website_show', {'id': website.id}) }}">show</a>
+                    <a href="{{ path('website_edit', {'id': website.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('website_new') }}">Create new</a>
+{% endblock %}
