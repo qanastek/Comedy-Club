@@ -57,18 +57,4 @@ class ArtistesController extends Controller
                 
         return $this->redirectToRoute('list_artists');
     }
-
-    /**
-     * @Route("/artist/modify", name="modify_artist")
-     */
-    public function modifyArtist()
-    {
-        if (isset($_POST['id']) && isset($_POST['name'])) {
-
-            return new JsonResponse(201);
-            
-        } else {
-            return new JsonResponse(400);
-        }
-    }
 }

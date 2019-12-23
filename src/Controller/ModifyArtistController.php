@@ -4,20 +4,45 @@ namespace App\Controller;
 
 use App\Entity\Artist;
 use App\Form\AddArtistType;
-use App\Repository\ArtistRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AddArtistController extends Controller
+class ModifyArtistController extends Controller
 {
     /**
-     * @Route("/admin/add-artist", name="add_artist")
+     * @Route("/admin/modify-artist", name="modify_artist")
      */
     public function index(Request $request)
     {
-        $artist = new Artist();
+
+        $id = $_GET['id'];
+
+        if (!isset($id)) {
+
+            $this->addFlash(
+                'danger',
+                "Artist doesn't exist !"
+            );
+        
+            return $this->render('list_artists/index.html.twig', []);
+        }
+
+        $em = $this->getDoctrine()->getManager();
+
+        $artist = $em->getRepository(Artist::class)->findOneBy([
+            "id" => $id
+        ]);
+        
+        if (!isset($artist)) {
+
+            $this->addFlash(
+                'danger',
+                "Artist doesn't exist !"
+            );
+        
+            return $this->render('list_artists/index.html.twig', []);
+        }
 
         $form = $this->createForm(AddArtistType::class, $artist, [
             'action' => $this->generateUrl('add_artist'),
@@ -28,18 +53,11 @@ class AddArtistController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $file = $artist->getImage();
-            $newFileName = md5(uniqid()) . "." . $file->guessExtension();
-            $file->move($this->getParameter("upload_directory") . "/artists/",$newFileName);
-            $artist->setImage($newFileName);
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($artist);
             $em->flush();
 
             $this->addFlash(
                 'success',
-                'Artist added !'
+                'Artist modified !'
             );
 
         } else if ($form->isSubmitted() && !$form->isValid()) {
@@ -50,8 +68,8 @@ class AddArtistController extends Controller
             );
 
         }
-
-        return $this->render('add_artist/index.html.twig', [
+        
+        return $this->render('list_artists/index.html.twig', [
             'form' => $form->createView()
         ]);
     }
