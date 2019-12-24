@@ -1,6 +1,6 @@
 {% extends 'baseIndex.html.twig' %}
 
-{% block title %}Hello IndexController!{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
     <!-- Page Header -->
@@ -29,4 +29,17 @@
             </div>
         </div>
     </article>
+
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    {% include 'components/event.html.twig' %}
+
+                </div>
+            </div>
+        </div>
+    </article>
+    
 {% endblock %}

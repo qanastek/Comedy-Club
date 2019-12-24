@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artists{% endblock %}
+
+{% block body %}
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1 style="font-weight: 300; letter-spacing: 4px; text-transform: uppercase;">LES ARTISTES</h1>
+
+                <hr style="width: 80px; padding-bottom: 3%;" align="left" size="50" class="hr1">
+
+                {% for artist in artists %}
+                <div class="col-md-3 col-xs-12 text-center">
+                    <div>
+                        <img 
+                            src="/uploads/artists/{{ artist.image }}"
+                            class="img-responsive"
+                            style="
+                                width: 11vw;
+                                height: 11vw;
+                                overflow: hidden;
+                                object-fit: cover;
+                                border-radius: 10em;
+                                cursor: pointer !important;
+                                margin: 0 auto;
+                            "
+                            alt=""
+                        >
+                    </div>
+                    <div style="text-transform: capitalize; margin-top: 3%;">
+                        {{ artist.name }}
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</article>
+
+{% endblock %}

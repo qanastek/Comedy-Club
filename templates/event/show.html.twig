@@ -1,10 +1,32 @@
-{% extends 'baseDashboard.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Event{% endblock %}
 {% block pageName %}Event{% endblock %}
 
 {% block body %}
-    <h1>Event</h1>
+
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <img 
+                src="/uploads/events/{{ event.image }}"
+                class="img-fluid"
+                style="width: 20vw; height: 30vw; overflow: hidden; object-fit: cover;"
+            >
+        </div>
+        <div class="col-md-8 text-left">
+            <b style="color: #fe8155; font-size: 1.5em;">{{ event.title }}</b>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-xs-6 col-sm-4" style="text-align: left; font-family: 'Roboto', sans-serif;">
+        <a href="{{ event.ticketUrl }}" target="_blank">
+            <p>
+                <b style="color: #fe8155;">{{ event.title }}</b>
+                <br>
+                {{ event.date ? event.date|date('d F Y') : 'UNKNOW' }}
+            </p>
+        </a>
+    </div>
 
     <table class="table">
         <tbody>

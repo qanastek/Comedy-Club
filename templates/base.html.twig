@@ -16,8 +16,19 @@
         <!-- Theme CSS -->
         <link href="{{ asset('assets/css/clean-blog.min.css') }}" rel="stylesheet">
 
+        <!-- JQuery -->
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+
+        <script
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+
         <!-- FONTS -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css">
@@ -33,11 +44,12 @@
         </style>
         {% endblock %}
     </head>
-    <body>
+    <body style="font-family: 'Roboto', sans-serif;">
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
             <div class="container-fluid">
+
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header page-scroll">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -56,6 +68,9 @@
                         </li>
                         <li>
                             <a href="{{ path('a_laffiche') }}">A l'affiche</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('artists') }}">Artistes</a>
                         </li>
                         <li>
                             <a href="{{ path('a_propos') }}">A PROPOS</a>

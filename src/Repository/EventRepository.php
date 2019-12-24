@@ -24,11 +24,6 @@ class EventRepository extends ServiceEntityRepository
      */
     public function nextEvents()
     {
-        // return $this->findBy(
-        //     array(),
-        //     array('date' => 'ASC')
-        // );
-
         return $this->createQueryBuilder('e')
         ->andWhere('e.date >= :date')
         ->setParameter('date', new \DateTime('now'))

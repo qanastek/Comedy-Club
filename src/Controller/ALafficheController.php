@@ -7,10 +7,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/a-laffiche")
+ */
 class ALafficheController extends Controller
 {
     /**
-     * @Route("/a-laffiche", name="a_laffiche")
+     * @Route("/", name="a_laffiche")
      */
     public function index(EventRepository $eventRepository)
     {
@@ -19,6 +22,16 @@ class ALafficheController extends Controller
         return $this->render('a_laffiche/index.html.twig', [
             'controller_name' => 'ALafficheController',
             'events' => $events
+        ]);
+    }
+
+    /**
+     * @Route("/event/{id}", name="event_infos", methods={"GET"})
+     */
+    public function infos($id, EventRepository $eventRepository): Response
+    {
+        return $this->render('event/show.html.twig', [
+            'event' => $eventRepository->find($id),
         ]);
     }
 }

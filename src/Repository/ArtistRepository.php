@@ -18,4 +18,16 @@ class ArtistRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Artist::class);
     }
+
+    /**
+     * @return Artist[] Returns an array of Artist objects
+     */
+    public function allArtists()
+    {
+        return $this->createQueryBuilder('a')
+        ->orderBy('a.name', 'ASC')
+        ->getQuery()
+        ->getResult()
+        ;
+    }
 }
