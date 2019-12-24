@@ -52,7 +52,7 @@ class EventType extends AbstractType
                     'class' => 'form-control mt-1'
                 ]
             ])
-            ->add('date', DateType::class, [
+            ->add('date', DateTimeType::class, [
                 'label' => 'Date of start',
                 'label_attr' => [
                     'class' => 'mt-3'

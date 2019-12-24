@@ -14,9 +14,11 @@ class ALafficheController extends Controller
      */
     public function index(EventRepository $eventRepository)
     {
+        $events = $eventRepository->nextEvents();
+        
         return $this->render('a_laffiche/index.html.twig', [
             'controller_name' => 'ALafficheController',
-            'events' => $eventRepository->findAll(),
+            'events' => $events
         ]);
     }
 }
