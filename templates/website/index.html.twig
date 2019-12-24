@@ -47,8 +47,18 @@
                 <td>{{ website.twitterUrl }}</td>
                 <td>{{ website.termsOfUse }}</td>
                 <td>
-                    <a href="{{ path('website_show', {'id': website.id}) }}">show</a>
-                    <a href="{{ path('website_edit', {'id': website.id}) }}">edit</a>
+                    <a href="{{ path('website_edit', {'id': website.id}) }}">
+                        <i 
+                        class="modify far fa-edit"
+                        style="color: green; cursor: pointer;"
+                        ></i>
+                    </a>
+                    <a href="{{ path('website_delete', {'id': website.id}) }}">
+                        <i
+                        class="delete far fa-trash-alt"
+                        style="color: red; cursor: pointer;"
+                        ></i>
+                    </a>
                 </td>
             </tr>
         {% else %}

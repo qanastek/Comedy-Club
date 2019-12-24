@@ -4,18 +4,20 @@
 {% block pageName %}Event index{% endblock %}
 
 {% block body %}
+
+    <a class="btn btn-primary mb-3" href="{{ path('event_new') }}">ADD</a>
+
     <h1>Event index</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Image</th>
                 <th>Title</th>
-                <th>Description</th>
+                <th>Location</th>
                 <th>Prix</th>
                 <th>Date</th>
-                <th>Image</th>
-                <th>Ticket_url</th>
+                <th>Booking</th>
                 <th>Seats</th>
                 <th>actions</th>
             </tr>
@@ -23,17 +25,36 @@
         <tbody>
         {% for event in events %}
             <tr>
-                <td>{{ event.id }}</td>
-                <td>{{ event.title }}</td>
-                <td>{{ event.description }}</td>
-                <td>{{ event.prix }}</td>
-                <td>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ event.image }}</td>
-                <td>{{ event.ticketUrl }}</td>
-                <td>{{ event.seats }}</td>
                 <td>
-                    <a href="{{ path('event_show', {'id': event.id}) }}">show</a>
-                    <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
+                    <img 
+                        src="/uploads/events/{{ event.image }}"
+                        class="img-fluid img-thumbnail"
+                        style="width: 10vw; height: 15vw; overflow: hidden; object-fit: cover;"
+                    >
+                </td>
+                <td>{{ event.title }}</td>
+                <td>{{ event.location }}</td>
+                <td>{{ event.prix }} €</td>
+                <td>{{ event.date ? event.date|date('d-m-Y à H:i') : '' }}</td>
+                <td>
+                    <a href="{{ event.ticketUrl }}">LINK</a>
+                </td>
+                <td>
+                    {{ event.seats }}
+                </td>
+                <td>
+                    <a href="{{ path('event_edit', {'id': event.id}) }}">
+                        <i 
+                        class="modify far fa-edit"
+                        style="color: green; cursor: pointer;"
+                        ></i>
+                    </a>
+                    <a href="{{ path('event_delete', {'id': event.id}) }}">
+                        <i
+                        class="delete far fa-trash-alt"
+                        style="color: red; cursor: pointer;"
+                        ></i>
+                    </a>
                 </td>
             </tr>
         {% else %}
@@ -43,6 +64,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('event_new') }}">Create new</a>
 {% endblock %}

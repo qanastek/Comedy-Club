@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/event")
+ * @Route("/dashboard/event")
  */
 class EventController extends Controller
 {
@@ -36,8 +36,19 @@ class EventController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            
+            $file = $event->getImage();
+            $newFileName = md5(uniqid()) . "." . $file->guessExtension();
+            $file->move($this->getParameter("upload_directory") . "/events/",$newFileName);
+            $event->setImage($newFileName);
+
             $entityManager->persist($event);
             $entityManager->flush();
+
+            $this->addFlash(
+                'success',
+                'Event added !'
+            );
 
             return $this->redirectToRoute('event_index');
         }
@@ -67,6 +78,12 @@ class EventController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $file = $event->getImage();
+            $newFileName = md5(uniqid()) . "." . $file->guessExtension();
+            $file->move($this->getParameter("upload_directory") . "/events/",$newFileName);
+            $event->setImage($newFileName);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('event_index');

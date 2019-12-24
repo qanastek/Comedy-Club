@@ -4,9 +4,10 @@
 {% block pageName %}New Location{% endblock %}
 
 {% block body %}
+    <a class="btn btn-primary" href="{{ path('location_index') }}">back to list</a>
+    
     <h1>Create new Location</h1>
 
     {{ include('location/_form.html.twig') }}
 
-    <a href="{{ path('location_index') }}">back to list</a>
 {% endblock %}

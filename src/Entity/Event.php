@@ -49,8 +49,7 @@ class Event
     private $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Location")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $location;
 
@@ -148,24 +147,24 @@ class Event
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImage()
     {
         return $this->image;
     }
 
-    public function setImage(?string $image): self
+    public function setImage($image): self
     {
         $this->image = $image;
 
         return $this;
     }
 
-    public function getLocation(): ?Location
+    public function getLocation(): ?string
     {
         return $this->location;
     }
 
-    public function setLocation(?Location $location): self
+    public function setLocation(?string $location): self
     {
         $this->location = $location;
 
@@ -194,5 +193,10 @@ class Event
         $this->seats = $seats;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return "ID: " . $this->getId() . ", Seats: " . $this->getSeats();
     }
 }

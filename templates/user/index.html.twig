@@ -33,8 +33,18 @@
                 <td>{{ user.image }}</td>
                 <td>{{ user.firstName }}</td>
                 <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}">
+                        <i 
+                        class="modify far fa-edit"
+                        style="color: green; cursor: pointer;"
+                        ></i>
+                    </a>
+                    <a href="{{ path('user_delete', {'id': user.id}) }}">
+                        <i
+                        class="delete far fa-trash-alt"
+                        style="color: red; cursor: pointer;"
+                        ></i>
+                    </a>
                 </td>
             </tr>
         {% else %}

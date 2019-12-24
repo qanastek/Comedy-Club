@@ -3,18 +3,38 @@
 {% block title %}Hello ALafficheController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp2/htdocs/other_things/ComedyClub/src/Controller/ALafficheController.php'|file_link(0) }}">src/Controller/ALafficheController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp2/htdocs/other_things/ComedyClub/templates/a_laffiche/index.html.twig'|file_link(0) }}">templates/a_laffiche/index.html.twig</a></code></li>
-    </ul>
-</div>
+                <h1 style="font-family: 'Roboto', sans-serif; letter-spacing: 4px;">A L'AFFICHE</h1>
+
+                <hr style="width: 80px;" align="left" size="50" class="hr1">
+
+                <h4 style="font-family: 'Roboto', sans-serif; letter-spacing: 4px;">Bienvenue au Avignon Comedy Club. Venez découvrir les sketchs d'humoristes amateurs et professionnel dans une ambiance chaleureuse.</h4>
+
+                <br>
+                <br>
+
+                {% for event in events %}
+                <div class="col-md-3 col-xs-6 col-sm-4" style="text-align: left; font-family: 'Roboto', sans-serif;">
+                    <a href="{{ event.ticketUrl }}" target="_blank">
+                        <img src="/uploads/events/{{ event.image }}" style="height: 250px;">
+                        <p>
+                            <b style="color: #fe8155;">{{ event.title }}</b>
+                            <br>
+                            {{ event.date ? event.date|date('d F Y') : 'UNKNOW' }}
+                        </p>
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</article>
+
 {% endblock %}

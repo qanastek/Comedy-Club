@@ -4,12 +4,12 @@
 {% block pageName %}Location index{% endblock %}
 
 {% block body %}
-    <h1>Location index</h1>
+
+    <a class="btn btn-primary mb-3" href="{{ path('location_new') }}">Create new</a>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>Address</th>
                 <th>Latitude</th>
@@ -20,14 +20,23 @@
         <tbody>
         {% for location in locations %}
             <tr>
-                <td>{{ location.id }}</td>
                 <td>{{ location.name }}</td>
                 <td>{{ location.address }}</td>
                 <td>{{ location.latitude }}</td>
                 <td>{{ location.longitude }}</td>
                 <td>
-                    <a href="{{ path('location_show', {'id': location.id}) }}">show</a>
-                    <a href="{{ path('location_edit', {'id': location.id}) }}">edit</a>
+                    <a href="{{ path('location_edit', {'id': location.id}) }}">
+                        <i 
+                        class="modify far fa-edit"
+                        style="color: green; cursor: pointer;"
+                        ></i>
+                    </a>
+                    <a href="{{ path('location_delete', {'id': location.id}) }}">
+                        <i
+                        class="delete far fa-trash-alt"
+                        style="color: red; cursor: pointer;"
+                        ></i>
+                    </a>
                 </td>
             </tr>
         {% else %}
@@ -37,6 +46,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('location_new') }}">Create new</a>
 {% endblock %}
