@@ -21,7 +21,7 @@ class GalleryEntityController extends Controller
     public function index(GalleryEntityRepository $galleryEntityRepository): Response
     {
         return $this->render('gallery_entity/index.html.twig', [
-            'gallery_entities' => $galleryEntityRepository->findAll(),
+            'gallery_entities' => $galleryEntityRepository->getAll(),
         ]);
     }
 

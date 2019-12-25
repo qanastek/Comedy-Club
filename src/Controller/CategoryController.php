@@ -21,7 +21,7 @@ class CategoryController extends Controller
     public function index(CategoryRepository $categoryRepository): Response
     {
         return $this->render('category/index.html.twig', [
-            'categories' => $categoryRepository->findAll(),
+            'categories' => $categoryRepository->getAll(),
         ]);
     }
 
