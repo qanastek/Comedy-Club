@@ -30,6 +30,22 @@ class GalleryEntityRepository extends ServiceEntityRepository
         ->getResult()
         ;
     }
+
+    /**
+     * @return GalleryEntity[] Returns an array of Event objects
+     */
+    public function firstGallery($limit)
+    {
+        return array_slice(
+            $this->createQueryBuilder('g')
+            ->orderBy('g.id', 'DESC')
+            ->getQuery()
+            ->getResult(),
+            0,
+            $limit
+        );
+    }
+
     // /**
     //  * @return GalleryEntity[] Returns an array of GalleryEntity objects
     //  */

@@ -15,7 +15,7 @@ class IndexController extends Controller
     public function index(EventRepository $eventRepository, GalleryEntityRepository $GalleryEntityRepository)
     {
         $events = $eventRepository->nextEvents();
-        $gallery = $GalleryEntityRepository->getAll();
+        $gallery = $GalleryEntityRepository->firstGallery(16);
 
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
