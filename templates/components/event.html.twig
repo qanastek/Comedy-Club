@@ -9,7 +9,7 @@
 
 {% for event in events %}
 <div class="col-md-3 col-xs-6 col-sm-4" style="text-align: left; font-family: 'Roboto', sans-serif;">
-    <a style="cursor: pointer;" href="{{ path('event_infos', {'id': event.id}) }}" target="_blank">
+    <a style="cursor: pointer;" href="{{ path('event_infos', {'id': event.id}) }}">
         <img 
             src="/uploads/events/{{ event.image }}"
             class="img-fluid"

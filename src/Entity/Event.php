@@ -49,11 +49,6 @@ class Event
     private $image;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=false)
-     */
-    private $location;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $ticket_url;
@@ -62,6 +57,12 @@ class Event
      * @ORM\Column(type="integer")
      */
     private $seats;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Location")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $location;
 
     public function __construct()
     {
@@ -100,7 +101,7 @@ class Event
     /**
      * @return Collection|Artist[]
      */
-    public function getArtists(): Collection
+    public function getArtists(): ?Collection
     {
         return $this->artists;
     }
@@ -159,18 +160,6 @@ class Event
         return $this;
     }
 
-    public function getLocation(): ?string
-    {
-        return $this->location;
-    }
-
-    public function setLocation(?string $location): self
-    {
-        $this->location = $location;
-
-        return $this;
-    }
-
     public function getTicketUrl(): ?string
     {
         return $this->ticket_url;
@@ -191,6 +180,18 @@ class Event
     public function setSeats(int $seats): self
     {
         $this->seats = $seats;
+
+        return $this;
+    }
+
+    public function getLocation(): ?Location
+    {
+        return $this->location;
+    }
+
+    public function setLocation(?Location $location): self
+    {
+        $this->location = $location;
 
         return $this;
     }

@@ -105,6 +105,16 @@ class Artist
         return $this->name;
     }
 
+    /**
+     * Usefull for the form
+     *
+     * @return string|null
+     */
+    public function displayName(): ?string
+    {
+        return $this->name;
+    }
+
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -136,7 +146,8 @@ class Artist
         return $this;
     }
 
-    public function __toString() {
-        return "ID: " . $this->getId() . ", Name: " . $this->getName();
+    public function __toString(): ?string
+    {
+        return $this->name;
     }
 }

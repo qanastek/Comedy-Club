@@ -17,6 +17,7 @@
 
         <!-- Theme CSS -->
         <link href="{{ asset('assets/css/clean-blog.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
 
         <!-- JQuery -->
         <script
@@ -30,7 +31,7 @@
         crossorigin="anonymous"></script>
 
         <!-- FONTS -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css">
@@ -38,9 +39,15 @@
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
         <title>{% block title %}Avignon Comedy Club{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+        <style>
+            .nav li a {
+                color: #fe8155 !important;   
+            }
+        </style>
+        {% endblock %}
     </head>
-    <body>
+    <body style="font-family: 'Roboto', sans-serif;">
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -78,8 +85,10 @@
             <!-- /.container -->
         </nav>
 
-        {% block body %}{% endblock %}
-
+        <div>
+            {% block body %}{% endblock %}
+        </div>
+        
         {{ include('components/footer.html.twig') }}
 
         {% block javascripts %}{% endblock %}

@@ -12,6 +12,9 @@
             <tr>
                 <th>Name</th>
                 <th>Address</th>
+                <th>Postal code</th>
+                <th>City</th>
+                <th>Country</th>
                 <th>Latitude</th>
                 <th>Longitude</th>
                 <th>actions</th>
@@ -20,8 +23,11 @@
         <tbody>
         {% for location in locations %}
             <tr>
-                <td>{{ location.name }}</td>
-                <td>{{ location.address }}</td>
+                <td style="text-transform: capitalize;">{{ location.name }}</td>
+                <td style="text-transform: capitalize;">{{ location.address }}</td>
+                <td>{{ location.postalcode }}</td>
+                <td style="text-transform: capitalize;">{{ location.city }}</td>
+                <td style="text-transform: capitalize;">{{ location.country }}</td>
                 <td>{{ location.latitude }}</td>
                 <td>{{ location.longitude }}</td>
                 <td>

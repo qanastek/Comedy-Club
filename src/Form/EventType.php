@@ -2,8 +2,12 @@
 
 namespace App\Form;
 
+use App\Entity\Artist;
 use App\Entity\Event;
+use App\Entity\Location;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -98,16 +102,10 @@ class EventType extends AbstractType
                 ]
             ])
             // ->add('artists')
-            ->add('location', TextType::class, [
-                'label' => 'Address',
-                'label_attr' => [
-                    'class' => 'mt-3'
-                ],
-                'required' => true,
-                'attr' => [
-                    'placeholder' => 'Enter the address of the event',
-                    'class' => 'form-control mt-1'
-                ]
+            ->add('artists')
+            ->add('location', EntityType::class, [
+                'class' => Location::class,
+                'choice_label' => 'displayName',
             ])
         ;
     }

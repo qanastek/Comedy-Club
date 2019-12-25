@@ -21,7 +21,7 @@ class LocationType extends AbstractType
                 ],
                 'required' => true,
                 'attr' => [
-                    'placeholder' => 'Enter the name of the location',
+                    'placeholder' => 'Enter the name of the place',
                     'class' => 'form-control mt-1'
                 ]
             ])
@@ -33,6 +33,39 @@ class LocationType extends AbstractType
                 'required' => true,
                 'attr' => [
                     'placeholder' => 'Enter the address of the location',
+                    'class' => 'form-control mt-1'
+                ]
+            ])
+            ->add('city', TextType::class, [
+                'label' => 'City',
+                'label_attr' => [
+                    'class' => 'mt-3'
+                ],
+                'required' => true,
+                'attr' => [
+                    'placeholder' => 'Enter the city of the location',
+                    'class' => 'form-control mt-1'
+                ]
+            ])
+            ->add('country', TextType::class, [
+                'label' => 'Country',
+                'label_attr' => [
+                    'class' => 'mt-3'
+                ],
+                'required' => true,
+                'attr' => [
+                    'placeholder' => 'Enter the country of the location',
+                    'class' => 'form-control mt-1'
+                ]
+            ])
+            ->add('postal_code', NumberType::class, [
+                'label' => 'Postal code',
+                'label_attr' => [
+                    'class' => 'mt-3'
+                ],
+                'required' => true,
+                'attr' => [
+                    'placeholder' => 'Enter the postal code of the location',
                     'class' => 'form-control mt-1'
                 ]
             ])
