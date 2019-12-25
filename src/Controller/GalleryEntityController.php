@@ -36,6 +36,12 @@ class GalleryEntityController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            
+            $file = $galleryEntity->getImage();
+            $newFileName = md5(uniqid()) . "." . $file->guessExtension();
+            $file->move($this->getParameter("upload_directory") . "/gallery/",$newFileName);
+            $galleryEntity->setImage($newFileName);
+
             $entityManager->persist($galleryEntity);
             $entityManager->flush();
 
@@ -67,6 +73,12 @@ class GalleryEntityController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $file = $galleryEntity->getImage();
+            $newFileName = md5(uniqid()) . "." . $file->guessExtension();
+            $file->move($this->getParameter("upload_directory") . "/gallery/",$newFileName);
+            $galleryEntity->setImage($newFileName);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('gallery_entity_index');

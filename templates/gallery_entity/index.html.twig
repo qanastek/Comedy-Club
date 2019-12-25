@@ -4,21 +4,32 @@
 {% block pageName %}GalleryEntity index{% endblock %}
 
 {% block body %}
+
+    <a class="btn btn-primary mb-2" href="{{ path('gallery_entity_new') }}">Create new</a>
+
     <h1>GalleryEntity index</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Image</th>
                 <th>Name</th>
+                <th>Category</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for gallery_entity in gallery_entities %}
             <tr>
-                <td>{{ gallery_entity.id }}</td>
+                <td>
+                    <img 
+                        src="/uploads/gallery/{{ gallery_entity.image }}"
+                        class="img-fluid img-thumbnail"
+                        style="width: 15vw; height: 10vw; overflow: hidden; object-fit: cover;"
+                    >
+                </td>
                 <td>{{ gallery_entity.name }}</td>
+                <td>{{ gallery_entity.category ? gallery_entity.category : "--;--" }}</td>
                 <td>
                     <a href="{{ path('gallery_entity_edit', {'id': gallery_entity.id}) }}">
                         <i 
@@ -42,5 +53,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('gallery_entity_new') }}">Create new</a>
 {% endblock %}

@@ -18,7 +18,18 @@ class GalleryEntityRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, GalleryEntity::class);
     }
-
+    
+    /**
+     * @return GalleryEntity[] Returns an array of Event objects
+     */
+    public function getAll()
+    {
+        return $this->createQueryBuilder('g')
+        ->orderBy('g.id', 'DESC')
+        ->getQuery()
+        ->getResult()
+        ;
+    }
     // /**
     //  * @return GalleryEntity[] Returns an array of GalleryEntity objects
     //  */

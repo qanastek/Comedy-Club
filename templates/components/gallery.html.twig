@@ -1,0 +1,22 @@
+<h1 style="font-weight: 300; letter-spacing: 4px;">GALLERIE PHOTO</h1>
+
+<hr style="width: 80px;" align="left" size="50" class="hr1">
+
+{% for image in gallery %}
+
+<div class="col-lg-3 col-xs-6 col-sm-4">
+    <a href="/uploads/gallery/{{ image.image }}" class="portfolio-box">
+        <img src="/uploads/gallery/{{ image.image }}" style="width: 15vw; height: 10vw; overflow: hidden; object-fit: cover; cursor: pointer !important;" alt="{{ image.name }}">
+        <div class="portfolio-box-caption">
+            <div class="portfolio-box-caption-content">
+                <div class="project-category text-faded">
+                    {{ image.category }}
+                </div>
+                <div class="project-name">
+                    {{ image.name }}
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+{% endfor %}

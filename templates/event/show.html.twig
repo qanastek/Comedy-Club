@@ -4,11 +4,11 @@
 {% block pageName %}Event{% endblock %}
 
 {% block opengraph %}
-<meta property="og:url"                content="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}" />
+<meta property="og:url"                content="{{ app.request.getSchemeAndHttpHost() ~ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}" />
 <meta property="og:type"               content="article" />
 <meta property="og:title"              content="{{ event.title }}" />
 <meta property="og:description"        content="{{ event.description }}" />
-<meta property="og:image"              content="/uploads/events/{{ event.image }}" />
+<meta property="og:image"              content="{{ app.request.getSchemeAndHttpHost() }}/uploads/events/{{ event.image }}" />
 {% endblock %}
 
 {% block body %}

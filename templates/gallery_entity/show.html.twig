@@ -4,6 +4,11 @@
 {% block pageName %}GalleryEntity{% endblock %}
 
 {% block body %}
+
+    <a class="btn btn-primary" href="{{ path('gallery_entity_index') }}">back to list</a>
+
+    <a class="btn btn-primary" href="{{ path('gallery_entity_edit', {'id': gallery_entity.id}) }}">edit</a>
+
     <h1>GalleryEntity</h1>
 
     <table class="table">
@@ -18,10 +23,6 @@
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('gallery_entity_index') }}">back to list</a>
-
-    <a href="{{ path('gallery_entity_edit', {'id': gallery_entity.id}) }}">edit</a>
 
     {{ include('gallery_entity/_delete_form.html.twig') }}
 {% endblock %}
