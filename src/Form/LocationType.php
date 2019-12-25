@@ -69,6 +69,17 @@ class LocationType extends AbstractType
                     'class' => 'form-control mt-1'
                 ]
             ])
+            ->add('gmap_url', TextType::class, [
+                'label' => 'Google map URL',
+                'label_attr' => [
+                    'class' => 'mt-3'
+                ],
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'https://goo.gl/maps/rhTipZQZ26B9HE61A',
+                    'class' => 'form-control mt-1'
+                ]
+            ])
             ->add('latitude', NumberType::class, [
                 'label' => 'Latitude',
                 'label_attr' => [

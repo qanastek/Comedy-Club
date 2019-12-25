@@ -20,8 +20,8 @@
                     <p class="text-uppercase p-banner">{{ event.date ? event.date|date('l d F Y') : '00H00' }}</p>
                     <p class="text-uppercase p-banner">{{ event.date ? event.date|date('H:i') : '00H00' }}</p>
                     <p class="text-capitalize p-banner">
-                        {% for artist in event.artists %}
-                            {{ artist }}
+                        {% for artist in event.artists %}                            
+                            <span class="badge badge-primary">{{ artist }}</span>
                         {% endfor %}
                     </p>
 
@@ -32,25 +32,11 @@
             </div>
         </div>
         
-    </div>
-
-    {# <div class="row" style="margin-top: 50px;">
-        <div class="col-md-4 text-center">
-            <img 
-                src="/uploads/events/{{ event.image }}"
-                class="img-fluid"
-                style="width: 20vw; height: 30vw; overflow: hidden; object-fit: cover;"
-            >
-        </div>
-        <div class="col-md-8 text-left">
-            <b style="color: #fe8155; font-size: 1.5em;">{{ event.title }}</b>
-        </div>
-    </div> #}
-    
+    </div>   
 
     <div class="container">
         <div class="row" style="padding-top: 7%;">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-9">
 
                 {% if is_granted('ROLE_USER') %}
                     <div style="padding-bottom: 3%;">
@@ -61,6 +47,10 @@
                         <a class="btn btn-primary" href="{{ path('event_delete', {'id': event.id}) }}">delete</a>
                     </div>
                 {% endif %}
+
+                <h4>Description:</h4>
+
+                <p>{{ event.description }}</p>
 
                 <table class="table">
                     <tbody>
@@ -106,6 +96,16 @@
                         </tr>
                     </tbody>
                 </table>
+
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3">
+
+                <h4>Location:</h4>
+
+                <p class="location-info">{{ event.location.name }}</p>
+                <p class="location-info">{{ event.location.address }}</p>
+                <p class="location-info">{{ event.location.city }}, {{ event.location.postalcode }}, {{ event.location.country }}</p>
+                <a href="{{ event.location.gmapurl }}" target="_blank">View Map</a>
 
             </div>
         </div>
