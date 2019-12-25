@@ -95,7 +95,7 @@ class EventType extends AbstractType
                 'label_attr' => [
                     'class' => 'mt-3'
                 ],
-                'required' => true,
+                'required' => false,
                 'attr' => [
                     'placeholder' => 'Enter the number of seats availables for the event',
                     'class' => 'form-control mt-1'

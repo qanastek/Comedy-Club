@@ -28,6 +28,7 @@ class WebsiteType extends AbstractType
             ->add('twitter_url')
             ->add('terms_of_use')
             ->add('location')
+            ->add('currency')
         ;
     }
 

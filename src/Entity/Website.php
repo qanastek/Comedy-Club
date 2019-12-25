@@ -96,6 +96,11 @@ class Website
      */
     private $terms_of_use;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $currency;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -289,6 +294,18 @@ class Website
     public function setTermsOfUse(?string $terms_of_use): self
     {
         $this->terms_of_use = $terms_of_use;
+
+        return $this;
+    }
+
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency(?string $currency): self
+    {
+        $this->currency = $currency;
 
         return $this;
     }

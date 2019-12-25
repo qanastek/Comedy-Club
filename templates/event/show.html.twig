@@ -3,6 +3,14 @@
 {% block title %}Event{% endblock %}
 {% block pageName %}Event{% endblock %}
 
+{% block opengraph %}
+<meta property="og:url"                content="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}" />
+<meta property="og:type"               content="article" />
+<meta property="og:title"              content="{{ event.title }}" />
+<meta property="og:description"        content="{{ event.description }}" />
+<meta property="og:image"              content="/uploads/events/{{ event.image }}" />
+{% endblock %}
+
 {% block body %}
 
     {# Banner #}
@@ -41,8 +49,6 @@
             {# Main contain #}
             <div class="col-xs-12 col-sm-12 col-md-9" style="padding-right: 1% !important;">
 
-                <div class="border-event">
-
                     {% if is_granted('ROLE_USER') %}
                         <div style="padding-bottom: 3%;">
                             <a class="btn btn-primary" href="{{ path('event_index') }}">back to list</a>
@@ -61,52 +67,28 @@
 
                     <p>{{ event.description }}</p>
 
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <th>Id</th>
-                                <td>{{ event.id }}</td>
-                            </tr>
-                            <tr>
-                                <th>Title</th>
-                                <td>{{ event.title }}</td>
-                            </tr>
-                            <tr>
-                                <th>Description</th>
-                                <td>{{ event.description }}</td>
-                            </tr>
-                            <tr>
-                                <th>Prix</th>
-                                <td>{{ event.prix }}</td>
-                            </tr>
-                            <tr>
-                                <th>Date</th>
-                                <td>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Image</th>
-                                <td>{{ event.image }}</td>
-                            </tr>
-                            <tr>
-                                <th>Ticket_url</th>
-                                <td>{{ event.ticketUrl }}</td>
-                            </tr>
-                            <tr>
-                                <th>Seats</th>
-                                <td>{{ event.seats }}</td>
-                            </tr>
-                            <tr>
-                                <th>Artists</th>
-                                <td>
-                                    {% for artist in event.artists %}
-                                        {{ artist }}
-                                    {% endfor %}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <h4>Artists:</h4>
+                
+                    {% for artist in event.artists %}                            
+                        <span class="badge badge-primary" style="font-size: 0.75em;">{{ artist }}</span>
+                    {% endfor %}
 
-                </div>
+                    <p>
+                        <b>General Admission:</b>
+                        <span>{{ event.prix }} €</span>
+                    </p>
+
+                    {% if event.seats %}
+                    <p>
+                        <b>Seats:</b>
+                        <span>{{ event.seats }}</span>
+                    </p>
+                    {% endif %}
+
+                    <h4 style="padding-bottom: 1%;">Share With Friends</h4>
+
+                    <button type="button" class="btn btn-lg btn-fb"><i class="fab fa-facebook-f pr-1"></i> Facebook</button>
+                    <button type="button" class="btn btn-lg btn-twitter"><i class="fab fa-twitter pr-1"></i> Twitter</button>
 
             </div>
             

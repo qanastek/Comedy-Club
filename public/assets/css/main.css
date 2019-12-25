@@ -101,3 +101,13 @@
     left: 2px;
     border: 1px solid rgba(198,221,225,.8);
 }
+
+.btn-fb {
+    color: #fff;
+    background-color: #3b5998 !important;
+}
+
+.btn-twitter {
+    color: #fff;
+    background-color: #55acee !important;
+}
