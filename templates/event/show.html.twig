@@ -75,7 +75,7 @@
 
                     <p>
                         <b>General Admission:</b>
-                        <span>{{ event.prix }} €</span>
+                        <span>{{ event.prix > 0 ? event.prix ~ " €" : "FREE" }}</span>
                     </p>
 
                     {% if event.seats %}

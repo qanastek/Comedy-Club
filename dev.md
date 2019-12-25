@@ -38,3 +38,4 @@ nano .php-version
 
 ### Comedian:
 * https://improv.com/comedians/
+* http://www.montreuxcomedy.com/fr/artistes/

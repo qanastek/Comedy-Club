@@ -34,8 +34,8 @@
                 </td>
                 <td>{{ event.title }}</td>
                 <td>{{ event.location }}</td>
-                <td>{{ event.prix }} €</td>
-                <td>{{ event.date ? event.date|date('d-m-Y à H:i') : '' }}</td>
+                <td>{{ event.prix > 0 ? event.prix ~ " €" : "FREE" }} </td>
+                <td>{{ event.date ? event.date|date('d/m/Y à H:i') : '' }}</td>
                 <td>
                     <a href="{{ event.ticketUrl }}">LINK</a>
                 </td>

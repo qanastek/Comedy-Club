@@ -33,6 +33,18 @@ class EventRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @return Event[] Returns an array of Event objects
+     */
+    public function getAll()
+    {
+        return $this->createQueryBuilder('e')
+        ->orderBy('e.id', 'DESC')
+        ->getQuery()
+        ->getResult()
+        ;
+    }
+
     /*
     public function findOneBySomeField($value): ?Event
     {
