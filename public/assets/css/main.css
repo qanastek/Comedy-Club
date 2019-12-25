@@ -84,3 +84,20 @@
     line-height: 0em;
     text-transform: capitalize;
 }
+
+.border-event {
+    padding: 1.25em;
+    
+    border: 1px solid rgba(198,221,225,.8);
+    position: relative;
+}
+
+.border-event:after {
+    content: " ";
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    left: 2px;
+    border: 1px solid rgba(198,221,225,.8);
+}

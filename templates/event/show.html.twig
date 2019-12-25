@@ -5,16 +5,17 @@
 
 {% block body %}
 
+    {# Banner #}
     <div class="banner-background">
 
-        <div class="container" style="bottom: -40px; left: 12vw; position: absolute; top: 4vh;">
+        <div class="container" style="width: 100%; bottom: -40px; left: 12vw; position: absolute; top: 4vh;">
             <div class="row">
 
-                <div class="col-xs-12 col-sm-12 col-md-6" style="width: 37vw; height: 53vh">
+                <div class="col-xs-6 col-sm-6 col-md-6" style="width: 37vw; height: 53vh">
                     <img class="img-responsive banner-img" src="/uploads/events/{{ event.image }}" alt="Nom du spectacle">
                 </div>
 
-                <div class="col-xs-12 col-sm-12 col-md-6 text-left text-banner" style="position: relative; color: #fff;">
+                <div class="col-xs-6 col-sm-6 col-md-6 text-left text-banner" style="position: relative; color: #fff;">
                     <h1 class="text-uppercase" style"height: auto;">{{ event.title }}</h1>
 
                     <p class="text-uppercase p-banner">{{ event.date ? event.date|date('l d F Y') : '00H00' }}</p>
@@ -36,76 +37,92 @@
 
     <div class="container">
         <div class="row" style="padding-top: 7%;">
-            <div class="col-xs-12 col-sm-12 col-md-9">
 
-                {% if is_granted('ROLE_USER') %}
-                    <div style="padding-bottom: 3%;">
-                        <a class="btn btn-primary" href="{{ path('event_index') }}">back to list</a>
+            {# Main contain #}
+            <div class="col-xs-12 col-sm-12 col-md-9" style="padding-right: 1% !important;">
 
-                        <a class="btn btn-primary" href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
+                <div class="border-event">
 
-                        <a class="btn btn-primary" href="{{ path('event_delete', {'id': event.id}) }}">delete</a>
-                    </div>
-                {% endif %}
+                    {% if is_granted('ROLE_USER') %}
+                        <div style="padding-bottom: 3%;">
+                            <a class="btn btn-primary" href="{{ path('event_index') }}">back to list</a>
 
-                <h4>Description:</h4>
+                            <a class="btn btn-primary" href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
 
-                <p>{{ event.description }}</p>
+                            <a class="btn btn-primary" href="{{ path('event_delete', {'id': event.id}) }}">delete</a>
+                        </div>
+                    {% endif %}
 
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <th>Id</th>
-                            <td>{{ event.id }}</td>
-                        </tr>
-                        <tr>
-                            <th>Title</th>
-                            <td>{{ event.title }}</td>
-                        </tr>
-                        <tr>
-                            <th>Description</th>
-                            <td>{{ event.description }}</td>
-                        </tr>
-                        <tr>
-                            <th>Prix</th>
-                            <td>{{ event.prix }}</td>
-                        </tr>
-                        <tr>
-                            <th>Date</th>
-                            <td>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</td>
-                        </tr>
-                        <tr>
-                            <th>Image</th>
-                            <td>{{ event.image }}</td>
-                        </tr>
-                        <tr>
-                            <th>Ticket_url</th>
-                            <td>{{ event.ticketUrl }}</td>
-                        </tr>
-                        <tr>
-                            <th>Seats</th>
-                            <td>{{ event.seats }}</td>
-                        </tr>
-                        <tr>
-                            <th>Artists</th>
-                            <td>
-                                {% for artist in event.artists %}
-                                    {{ artist }}
-                                {% endfor %}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <h4>Dates:</h4>
+
+                    <p>{{ event.date ? event.date|date('l d F Y') : '00H00' }} at {{ event.date ? event.date|date('H:i') : '00H00' }}</p>
+
+                    <h4>Description:</h4>
+
+                    <p>{{ event.description }}</p>
+
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ event.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Title</th>
+                                <td>{{ event.title }}</td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <td>{{ event.description }}</td>
+                            </tr>
+                            <tr>
+                                <th>Prix</th>
+                                <td>{{ event.prix }}</td>
+                            </tr>
+                            <tr>
+                                <th>Date</th>
+                                <td>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Image</th>
+                                <td>{{ event.image }}</td>
+                            </tr>
+                            <tr>
+                                <th>Ticket_url</th>
+                                <td>{{ event.ticketUrl }}</td>
+                            </tr>
+                            <tr>
+                                <th>Seats</th>
+                                <td>{{ event.seats }}</td>
+                            </tr>
+                            <tr>
+                                <th>Artists</th>
+                                <td>
+                                    {% for artist in event.artists %}
+                                        {{ artist }}
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
 
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-3">
+            
+            {# Side menu #}
+            <div class="col-xs-12 col-sm-12 col-md-3" style="padding-left: 1% !important;">
 
-                <h4>Location:</h4>
+                <div class="border-event">
 
-                <p class="location-info">{{ event.location.name }}</p>
-                <p class="location-info">{{ event.location.address }}</p>
-                <p class="location-info">{{ event.location.city }}, {{ event.location.postalcode }}, {{ event.location.country }}</p>
-                <a href="{{ event.location.gmapurl }}" target="_blank">View Map</a>
+                    <h4>Location:</h4>
+
+                    <p class="location-info">{{ event.location.name }}</p>
+                    <p class="location-info">{{ event.location.address }}</p>
+                    <p class="location-info">{{ event.location.city }}, {{ event.location.postalcode }}, {{ event.location.country }}</p>
+                    <a href="{{ event.location.gmapurl }}" target="_blank">View Map</a>
+                
+                </div>
 
             </div>
         </div>
