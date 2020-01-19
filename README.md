@@ -1,6 +1,6 @@
 # ComedyClub
 
-## Technologies
+## Technologies used
 
 * MySQL
 * Symfony 4
