@@ -19,7 +19,7 @@ class GalleryEntityType extends AbstractType
                 'label_attr' => [
                     'class' => 'mt-3'
                 ],
-                'required' => true,
+                'required' => false,
                 'attr' => [
                     'placeholder' => 'Enter the name of the image',
                     'class' => 'form-control mt-1'

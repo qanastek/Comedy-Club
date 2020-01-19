@@ -28,7 +28,7 @@
                         style="width: 15vw; height: 10vw; overflow: hidden; object-fit: cover;"
                     >
                 </td>
-                <td>{{ gallery_entity.name }}</td>
+                <td>{{ gallery_entity.name ? gallery_entity.name : "--;--" }}</td>
                 <td>{{ gallery_entity.category ? gallery_entity.category : "--;--" }}</td>
                 <td>
                     <a href="{{ path('gallery_entity_edit', {'id': gallery_entity.id}) }}">
