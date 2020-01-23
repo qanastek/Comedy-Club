@@ -1,0 +1,23 @@
+easy_admin:
+  design:
+      brand_color: '#fe8155'
+      menu:
+        - { label: 'Blog', entity: 'Article', icon: 'newspaper' }
+        - { label: 'Gallerie', entity: 'GalleryEntity', icon: 'images' }
+        - label: 'Spectacles'
+          icon: 'calendar-alt'
+          children:
+              - { label: 'Spectacles', entity: 'Event', icon: 'calendar-alt' }
+              - { label: 'Artistes', entity: 'Artist', icon: 'users' }
+              - { label: 'Categories', entity: 'Category', icon: 'tags' }
+              - { label: 'Lieux', entity: 'Location', icon: 'map-marked-alt' }
+        - label: 'Apparence'
+          icon: 'paint-brush'
+          children:
+              - { label: "Heures d'ouvetures", entity: 'OpenHours', icon: 'clock' }
+              - { label: 'Generale', entity: 'Website', icon: 'sliders-h' }
+        - label: 'Administrateur'
+          icon: 'cogs'
+          children:
+              - { label: 'Roles', entity: 'Role', icon: 'user-shield' }
+              - { label: 'Utilisateurs', entity: 'User', icon: 'users' }

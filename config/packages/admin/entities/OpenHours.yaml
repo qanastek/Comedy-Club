@@ -1,0 +1,34 @@
+easy_admin:
+  entities:
+    OpenHours:
+        class: App\Entity\OpenHours
+        templates:
+            edit: 'admin/open_hours/edit.html.twig'
+            new: 'admin/open_hours/new.html.twig'
+        form:
+            fields:
+                - { property: "monday_start", type: "time", label: "Ouverture Lundi" }
+                - { property: "monday_end", type: "time", label: "Fermeture Lundi" }
+                
+                - { property: "tuesday_start", type: "time", label: "Ouverture Mardi" }
+                - { property: "tuesday_end", type: "time", label: "Fermeture Mardi" }
+
+                - { property: "wednesday_start", type: "time", label: "Ouverture Mercredi" }
+                - { property: "wednesday_end", type: "time", label: "Fermeture Mercredi" }
+
+                - { property: "thursday_start", type: "time", label: "Ouverture Jeudi" }
+                - { property: "thursday_end", type: "time", label: "Fermeture Jeudi" }
+
+                - { property: "friday_start", type: "time", label: "Ouverture Vendredi" }
+                - { property: "friday_end", type: "time", label: "Fermeture Vendredi" }
+
+                - { property: "saturday_start", type: "time", label: "Ouverture Samedi" }
+                - { property: "saturday_end", type: "time", label: "Fermeture Samedi" }
+
+                - { property: "sunday_start", type: "time", label: "Ouverture Dimanche" }
+                - { property: "sunday_end", type: "time", label: "Fermeture Dimanche" }
+        list:
+            title: "Heures d'ouverture"
+            actions:
+                - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary' }
+                - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger' }

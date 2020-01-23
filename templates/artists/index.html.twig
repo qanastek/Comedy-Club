@@ -16,7 +16,7 @@
                 <div class="col-md-3 col-xs-12 text-center">
                     <div>
                         <img 
-                            src="/uploads/artists/{{ artist.image }}"
+                            src="{{ vich_uploader_asset(artist, 'thumbnailFile') }}"
                             class="img-responsive"
                             style="
                                 width: 11vw;

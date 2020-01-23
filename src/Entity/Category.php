@@ -28,6 +28,11 @@ class Category
      */
     private $galleryEntities;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
     public function __construct()
     {
         $this->galleryEntities = new ArrayCollection();
@@ -84,5 +89,17 @@ class Category
     public function __toString()
     {
         return $this->name;        
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 }

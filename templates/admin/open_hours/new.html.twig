@@ -1,0 +1,64 @@
+{% extends '@EasyAdmin/default/new.html.twig' %}
+
+{% block main %}
+
+    <style>
+    .datetime-widget {
+        display: inline;
+        margin: 0% !important;
+    }
+    .openHours li {
+        display: inline;
+    }
+    </style>
+
+    {% block entity_form %}
+        {{ form_start(form) }}
+
+            <ul class="list-group openHours">
+                <li class="list-group-item">
+                    <div class="col-2" style="display: inline;">
+                        Lundi:
+                    </div>
+                    <div class="col-10" style="display: inline;">
+                        <div class="form-group">
+                            {{ form_widget(form.monday_start) }} <span style="padding: 0.5%;">-</span> {{ form_widget(form.monday_end) }}
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-group">
+                        Mardi: {{ form_widget(form.tuesday_start) }} à {{ form_widget(form.tuesday_end) }}
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-group">
+                        Mercredi: {{ form_widget(form.wednesday_start) }} à {{ form_widget(form.wednesday_end) }}
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-group">
+                        Jeudi: {{ form_widget(form.thursday_start) }} à {{ form_widget(form.thursday_end) }}
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-group">
+                        Vendredi: {{ form_widget(form.friday_start) }} à {{ form_widget(form.friday_end) }}
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-group">
+                        Samedi: {{ form_widget(form.saturday_start) }} à {{ form_widget(form.saturday_end) }}
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-group">
+                        Dimanche: {{ form_widget(form.sunday_start) }} à {{ form_widget(form.sunday_end) }}
+                    </div>
+                </li>
+
+            </ul>
+        {{ form_end(form) }}
+    {% endblock %}
+
+{% endblock %}

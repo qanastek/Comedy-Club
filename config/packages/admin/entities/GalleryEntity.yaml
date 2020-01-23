@@ -1,0 +1,20 @@
+easy_admin:
+  entities:
+    GalleryEntity:
+        class: App\Entity\GalleryEntity
+        form:
+            fields:
+                - { property: "thumbnailFile", type: "vich_image", label: "Image" }
+                - { property: 'name', type: 'text' }
+                - { property: 'category' }
+                - { property: "activated", type: "checkbox", label: "Cacher" }
+        list:
+            title: "Gallerie"
+            fields:
+                - { property: 'thumbnail', type: 'image', base_path: '%uploads_path_gallery%' }
+                - { property: 'name', type: 'text' }
+                - { property: 'category' }
+                - { property: 'activated', type: 'toggle' }
+            actions:
+                - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary' }
+                - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger' }

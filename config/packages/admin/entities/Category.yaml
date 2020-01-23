@@ -1,0 +1,16 @@
+easy_admin:
+  entities:
+    Category:
+        class: App\Entity\Category
+        form:
+            fields:
+              - { property: 'name', type: 'text' }
+              - { property: 'slug', type: 'text' }
+        list:
+            title: "Spectacles"
+            fields:
+                - { property: 'name', type: 'text' }
+                - { property: 'slug', type: 'text' }
+            actions:
+                - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary' }
+                - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger' }

@@ -1,0 +1,4 @@
+easy_admin:
+  entities:
+    Website:
+        class: App\Entity\Website

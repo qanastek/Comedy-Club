@@ -3,10 +3,10 @@
 namespace App\Controller;
 
 use App\Repository\ArtistRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ArtistsController extends Controller
+class ArtistsController extends AbstractController
 {
     /**
      * @Route("/artists", name="artists")

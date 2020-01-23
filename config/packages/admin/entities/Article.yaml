@@ -1,0 +1,22 @@
+easy_admin:
+  entities:
+    Article:
+        class: App\Entity\Article
+        form:
+          fields:
+              - { property: 'thumbnailFile', type: 'vich_image', label: 'Image' }
+              - { property: 'title', type: 'text', label: "Titre" }
+              - { property: 'content', type: 'text_editor', label: "Contenu" }
+              - { property: 'author', label: "Auteur" }
+              - { property: 'activated', type: 'checkbox', label: "Cacher" }
+        list:
+          title: "Articles"
+          fields:
+              - { property: 'thumbnail', type: 'image', base_path: '%uploads_path_articles%' }
+              - { property: 'title', type: 'text', label: "Titre" }
+              - { property: 'createAt', label: "Création" }
+              - { property: 'author', type: 'text' }
+              - { property: 'activated', type: 'toggle' }
+          actions:
+              - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary' }
+              - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger' }

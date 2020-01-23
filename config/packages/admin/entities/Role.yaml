@@ -1,0 +1,4 @@
+easy_admin:
+  entities:
+    Role:
+        class: App\Entity\Role

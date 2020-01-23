@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ * @Vich\Uploadable()
  */
 class Article
 {
@@ -33,19 +35,29 @@ class Article
     private $author;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", length=255)
      */
-    private $creation;
+    private $thumbnail;
+
+    /**
+     * @Vich\UploadableField(mapping="articlesImage", fileNameProperty="thumbnail")
+     */
+    private $thumbnailFile;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $last_modification;
+    private $createdAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Status", inversedBy="articles")
+     * @ORM\Column(type="datetime")
      */
-    private $status;
+    private $updatedAt;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $activated;
 
     public function getId(): ?int
     {
@@ -88,39 +100,77 @@ class Article
         return $this;
     }
 
-    public function getCreation(): ?\DateTimeInterface
-    {
-        return $this->creation;
+    public function __construct() {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
 
-    public function setCreation(\DateTimeInterface $creation): self
+    public function getThumbnail()
     {
-        $this->creation = $creation;
+        return $this->thumbnail;
+    }
+
+    public function setThumbnail(?string $thumbnail): self
+    {
+        $this->thumbnail = $thumbnail;
 
         return $this;
     }
 
-    public function getLastModification(): ?\DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->last_modification;
+        return $this->createdAt;
     }
 
-    public function setLastModification(\DateTimeInterface $last_modification): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
-        $this->last_modification = $last_modification;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getStatus(): ?Status
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->status;
+        return $this->updatedAt;
     }
 
-    public function setStatus(?Status $status): self
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
-        $this->status = $status;
+        $this->updatedAt = $updatedAt;
 
         return $this;
+    }
+
+    public function getActivated(): ?bool
+    {
+        return $this->activated;
+    }
+
+    public function setActivated(bool $activated): self
+    {
+        $this->activated = $activated;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of thumbnailFile
+     */ 
+    public function getThumbnailFile()
+    {
+        return $this->thumbnailFile;
+    }
+
+    /**
+     * Set the value of thumbnailFile
+     * @throws \Exception
+     */ 
+    public function setThumbnailFile($thumbnailFile): void
+    {
+        $this->thumbnailFile = $thumbnailFile;
+
+        if ($thumbnailFile) {
+            $this->updatedAt = new \DateTime();
+        }
     }
 }

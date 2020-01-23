@@ -3,10 +3,10 @@
 namespace App\Controller;
 
 use App\Repository\GalleryEntityRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class GalleryController extends Controller
+class GalleryController extends AbstractController
 {
     /**
      * @Route("/gallery", name="gallery")

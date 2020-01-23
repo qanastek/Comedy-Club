@@ -3,14 +3,14 @@
 namespace App\Controller;
 
 use App\Repository\EventRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/a-laffiche")
  */
-class ALafficheController extends Controller
+class ALafficheController extends AbstractController
 {
     /**
      * @Route("/", name="a_laffiche")
@@ -30,7 +30,7 @@ class ALafficheController extends Controller
      */
     public function infos($id, EventRepository $eventRepository): Response
     {
-        return $this->render('event/show.html.twig', [
+        return $this->render('a_laffiche/event.html.twig', [
             'event' => $eventRepository->find($id),
         ]);
     }

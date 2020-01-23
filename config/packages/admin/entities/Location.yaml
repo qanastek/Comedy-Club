@@ -1,0 +1,4 @@
+easy_admin:
+  entities:
+    Location:
+        class: App\Entity\Location

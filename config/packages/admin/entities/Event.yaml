@@ -1,0 +1,28 @@
+easy_admin:
+  entities:
+    Event:
+        class: App\Entity\Event
+        form:
+            fields:
+                - { property: "imageFile", type: "vich_image", label: "Miniature" }
+                - { property: "title", type: "text", label: "Titre" }
+                - { property: "description", type: "text_editor", label: "Description" }
+                - { property: "prix", label: "Prix" }
+                - { property: "date", label: "Date de début" }
+                - { property: "ticket_url", type: "url", label: "Lien billeterie" }
+                - { property: "seats", label: "Places disponibles" }
+                - { property: "artists", label: "Artistes" }
+                - { property: "location", label: "Lieu" }
+                - { property: "enabled", type: "checkbox", label: "Cacher" }
+        list:
+            title: "Spectacles"
+            fields:
+                - { property: 'image', type: 'image', base_path: '%uploads_path_events%' }
+                - { property: 'title', type: 'text' }
+                - { property: 'prix', type: 'float' }
+                - { property: 'date', type: 'date' }
+                - { property: 'ticket_url', type: 'url' }
+                - { property: 'enabled', type: 'toggle' }
+            actions:
+                - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary' }
+                - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger' }

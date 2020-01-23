@@ -11,7 +11,7 @@
 <div class="col-md-3 col-xs-6 col-sm-4" style="text-align: left; font-family: 'Roboto', sans-serif;">
     <a style="cursor: pointer;" href="{{ path('event_infos', {'id': event.id}) }}">
         <img 
-            src="/uploads/events/{{ event.image }}"
+            src="{{ vich_uploader_asset(event, 'imageFile') }}"
             class="img-fluid"
             style="width: 10vw; height: 15vw; overflow: hidden; object-fit: cover; cursor: pointer !important;"
         >
