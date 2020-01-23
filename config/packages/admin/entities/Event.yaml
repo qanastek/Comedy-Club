@@ -3,26 +3,35 @@ easy_admin:
     Event:
         class: App\Entity\Event
         form:
+            title: "Modification de l'evenement"
             fields:
-                - { property: "imageFile", type: "vich_image", label: "Miniature" }
-                - { property: "title", type: "text", label: "Titre" }
+                - { type: 'group', columns: 8, label: 'Evènement' }
+
+                - { type: 'section', label: 'Informations générale' }
+                - { property: "title", type: "text", label: "Nom", css_class: 'large' }
                 - { property: "description", type: "text_editor", label: "Description" }
-                - { property: "prix", label: "Prix" }
                 - { property: "date", label: "Date de début" }
+                - { property: "artists", label: "Artistes" }
+
+                - { type: 'section', label: 'Billeterie', icon: 'ticket-alt' }
+                - { property: "prix", type: "money", type_options: { currency: 'EUR' }, label: "Prix" }
                 - { property: "ticket_url", type: "url", label: "Lien billeterie" }
                 - { property: "seats", label: "Places disponibles" }
-                - { property: "artists", label: "Artistes" }
                 - { property: "location", label: "Lieu" }
+
+                - { type: 'group', columns: 4, label: 'Informations complémentaire' }
+                - { property: "imageFile", type: "vich_image", label: "Miniature" }
                 - { property: "enabled", type: "checkbox", label: "Cacher" }
         list:
             title: "Spectacles"
+            filters: ['enabled', 'date', 'title', 'prix', 'ticket_url']
             fields:
                 - { property: 'image', type: 'image', base_path: '%uploads_path_events%' }
-                - { property: 'title', type: 'text' }
-                - { property: 'prix', type: 'float' }
-                - { property: 'date', type: 'date' }
-                - { property: 'ticket_url', type: 'url' }
-                - { property: 'enabled', type: 'toggle' }
+                - { property: 'title', type: 'text', label: "Titre" }
+                - { property: 'prix', format: '%.2f', type: 'float', label: "Prix (€)" }
+                - { property: 'date', type: 'date', format: 'j/m/Y' }
+                - { property: 'ticket_url', type: 'url', label: "URL" }
+                - { property: 'enabled', type: 'toggle', label: "Cacher" }
             actions:
                 - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary' }
                 - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger' }

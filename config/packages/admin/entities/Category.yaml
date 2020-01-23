@@ -7,7 +7,7 @@ easy_admin:
               - { property: 'name', type: 'text' }
               - { property: 'slug', type: 'text' }
         list:
-            title: "Spectacles"
+            title: "Catégories"
             fields:
                 - { property: 'name', type: 'text' }
                 - { property: 'slug', type: 'text' }
