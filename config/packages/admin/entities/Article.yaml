@@ -10,7 +10,7 @@ easy_admin:
               - { property: 'content', type: 'text_editor', label: "Contenu" }
 
               - { type: 'group', columns: 4, label: 'Informations complémentaire' }
-              - { property: 'thumbnailFile', type: 'vich_image', label: 'Image de mise en avant' }
+              - { property: 'thumbnailFile', type: 'vich_image', label: 'Image de mise en avant', type_options: { required: true } }
               - { property: 'author', label: "Auteur" }
               - { property: 'activated', type: 'checkbox', label: "Cacher" }
         list:
@@ -21,7 +21,7 @@ easy_admin:
               - { property: 'createdAt', label: "Création", format: 'j/m/Y'}
               - { property: 'updatedAt', label: "Modification", format: 'j/m/Y'}
               - { property: 'author', type: 'text' }
-              - { property: 'activated', type: 'toggle' }
+              - { property: 'activated', type: 'toggle', label: "Cacher" }
           actions:
               - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary' }
               - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger' }

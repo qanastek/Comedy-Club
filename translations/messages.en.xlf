@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="vpHcX2g" resname="Bienvenue au Avignon Comedy Club. Venez découvrir les sketchs d'humoristes amateurs et professionnel dans une ambiance chaleureuse.">
+        <source>Bienvenue au Avignon Comedy Club. Venez découvrir les sketchs d'humoristes amateurs et professionnel dans une ambiance chaleureuse.</source>
+        <target>Bienvenue au Avignon Comedy Club. Venez découvrir les sketchs d'humoristes amateurs et professionnel dans une ambiance chaleureuse.</target>
+      </trans-unit>
+      <trans-unit id="NuepxIs" resname="Aucun évènements à l'affiche">
+        <source>Aucun évènements à l'affiche</source>
+        <target>Aucun évènements à l'affiche</target>
+      </trans-unit>
+      <trans-unit id="V.PvBQM" resname="Réserver mon billet">
+        <source>Réserver mon billet</source>
+        <target>Réserver mon billet</target>
+      </trans-unit>
+      <trans-unit id="1lVFiFr" resname="Dates:">
+        <source>Dates:</source>
+        <target>Dates:</target>
+      </trans-unit>
+      <trans-unit id="DPKBRgS" resname="Description:">
+        <source>Description:</source>
+        <target>Description:</target>
+      </trans-unit>
+      <trans-unit id="Uqa_zPs" resname="Artists:">
+        <source>Artists:</source>
+        <target>Artists:</target>
+      </trans-unit>
+      <trans-unit id="I58DiiE" resname="A L'AFFICHE">
+        <source>A L'AFFICHE</source>
+        <target>A L'AFFICHE</target>
+      </trans-unit>
+      <trans-unit id="PTaI3UY" resname="Site Web Fait Par">
+        <source>Site Web Fait Par</source>
+        <target>Site Web Fait Par</target>
+      </trans-unit>
+      <trans-unit id="9b86nDv" resname="GALLERIE PHOTO">
+        <source>GALLERIE PHOTO</source>
+        <target>GALLERIE PHOTO</target>
+      </trans-unit>
+      <trans-unit id="sOHp1N8" resname="Aucune image disponible">
+        <source>Aucune image disponible</source>
+        <target>Aucune image disponible</target>
+      </trans-unit>
+      <trans-unit id="UzFhc1Y" resname="Accueil">
+        <source>Accueil</source>
+        <target>Accueil</target>
+      </trans-unit>
+      <trans-unit id="EIlGEmh" resname="A l'affiche">
+        <source>A l'affiche</source>
+        <target>A l'affiche</target>
+      </trans-unit>
+      <trans-unit id="CL5dKdn" resname="L'actualité">
+        <source>L'actualité</source>
+        <target>L'actualité</target>
+      </trans-unit>
+      <trans-unit id="yfOa9tJ" resname="Artistes">
+        <source>Artistes</source>
+        <target>Artistes</target>
+      </trans-unit>
+      <trans-unit id="6gY54Ig" resname="Gallerie">
+        <source>Gallerie</source>
+        <target>Gallerie</target>
+      </trans-unit>
+      <trans-unit id="n_xGw6b" resname="A PROPOS">
+        <source>A PROPOS</source>
+        <target>A PROPOS</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -25,9 +25,8 @@ class EventRepository extends ServiceEntityRepository
     public function nextEvents()
     {
         return $this->createQueryBuilder('e')
-        ->andWhere('e.date >= :date')
-        ->setParameter('date', new \DateTime('now'))
-        ->orderBy('e.date', 'ASC')
+        ->andWhere('e.enabled = false')
+        ->orderBy('e.date', 'DESC')
         ->getQuery()
         ->getResult()
         ;

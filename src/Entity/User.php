@@ -38,6 +38,11 @@ class User implements UserInterface
      */
     private $apiToken;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $username;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,16 +58,6 @@ class User implements UserInterface
         $this->email = $email;
 
         return $this;
-    }
-
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
-    public function getUsername(): string
-    {
-        return (string) $this->email;
     }
 
     /**
@@ -130,6 +125,23 @@ class User implements UserInterface
 
     public function __toString()
     {
-        return $this->email;
+        return $this->username;
+    }
+
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUsername(): string
+    {
+        return (string) $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
     }
 }

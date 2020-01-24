@@ -1,0 +1,191 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1 style="font-weight: 300; letter-spacing: 4px; text-transform: uppercase;">L'ACTUALITÉ</h1>
+
+                <hr style="width: 80px; padding-bottom: 3%;" align="left" size="50" class="hr1">
+
+                <div class="col-md-8">
+                    {% if articles|length <= 0 %}
+                        <p>No news</p>
+                    {% else %}
+                        {% for article in articles %}   
+
+                        {% set articleUrl = path('blog_article', {'id': article.id}) %}
+
+                        <div class="row articles" style="padding-bottom: 2%; padding-top: 2%;">
+
+                            <div class="col-md-5">
+                                <a href="{{ articleUrl }}">
+                                    <img
+                                        src="{{ vich_uploader_asset(article, 'thumbnailFile') }}"
+                                        class="img_all_posts"
+                                        style="
+                                            object-fit: cover;
+                                            overflow: hidden;
+                                            width: 100%;
+                                        "
+                                    >
+                                </a>
+                            </div>
+
+                            <!-- Content part -->
+                            <div class="col-md-7">
+
+                                <a class="post_title_url" href="{{ articleUrl }}">
+                                    <p class="post_title_actualite">
+                                        {% if article.title|length <= 0 %}
+                                            No title
+                                        {% else %}
+                                            {{ article.title|capitalize }}
+                                        {% endif %}
+                                    </>
+                                </a>
+
+                                <p class="article_author">
+                                    Par <i class="custom_font" style="color: #404040;">{{ article.author.username }}</i> <span style="padding-left: 2%; padding-right: 2%;">|</span> Le {{ article.updatedAt|date("d M Y \\à h\\Hm") }}
+                                </p>
+
+                                <div class="content_post">
+                                    <p style="text-align: justify;">
+                                        {{ article.content|raw|striptags|replace({"&nbsp;":' '})[:100] ~ '...' }}
+                                    </p>
+                                </div>
+
+                                <a href="{{ articleUrl }}">
+                                    <button type="button" class="ReadMoreBtn">
+                                        Lire plus
+                                        <i class="fas fa-angle-double-right"></i>
+                                    </button>
+                                </a>
+
+                            </div>
+                            
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="col-md-4" style="padding-left: 3%; padding-right: 3%;">
+                        
+                    <div class="row" style="padding-bottom: 10%;">
+
+                        <p class="side_bar_title">
+                            <span>Nous Suivre</span>
+                        </p>
+
+                        <div style="font-size: 3em; text-align: center;">
+
+                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                <a href="#">
+                                    <i class="fab fa-facebook iconSharing fa-gradient-facebook"></i>
+                                </a>
+                            </div>
+                                
+                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                <a href="#">
+                                    <i class="fab fa-twitter iconSharing fa-gradient-twitter"></i>
+                                </a>
+                            </div>
+                                
+                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                <a href="#">
+                                    <i class="fab fa-instagram iconSharing fa-gradient-instagram"></i>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    {% set urlFacebook = '' %}
+                    {% if true == false %}
+                        
+                    <div class="row" style="padding-bottom: 10%;">
+
+                        <p class="side_bar_title">
+                            <span>Facebook</span>
+                        </p>
+
+                        <div style="font-size: 3em; text-align: center;">
+
+                            <div class="col-md-12">
+                                <iframe src="https://www.facebook.com/plugins/page.php?href={{ urlFacebook }}&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=121223005113843" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+                    <div class="row">
+
+                        <!-- derniers articles -->
+                        <p class="side_bar_title">
+                            <span>Derniers Articles</span>
+                        </p>
+                        
+                        {% if articles|length <= 0 %}
+                            <p>No news</p>
+                        {% else %}
+                            {% for article in articles|slice(0, 3) %}  
+
+                            {% set articleUrl = path('blog_article', {'id': article.id}) %}
+
+                                <!-- A article -->
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <a href="{{ articleUrl }}">
+                                            <img
+                                                src="{{ vich_uploader_asset(article, 'thumbnailFile') }}"
+                                                class="img_lastest_posts"
+                                                style="
+                                                    width: 100%;
+                                                    object-fit: cover;
+                                                    overflow: hidden;
+                                                    padding-bottom: 4%;
+                                                "
+                                            >
+                                        </a>
+                                    </div>
+
+                                    <div class="col-md-6" style="padding-top: 1%;">
+
+                                        <a class="side_title_post_actualite" href="{{ articleUrl }}" style="color: #404040;">                                            
+                                            {% if article.title|length <= 0 %}
+                                                <p>No title</p>
+                                            {% else %}
+                                                <p>{{ article.title|capitalize }}</p>
+                                            {% endif %}
+                                        </a>
+
+                                        <p class="side_description_post">
+                                            Par <i class="custom_font" style="color: #404040; font-weight: bold; font-family: Merriweather, Helvetica Neue, Arial, sans-serif;">{{ article.author.username }}</i>
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <hr>
+
+                            {% endfor %}
+                        {% endif %}
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
+{% endblock %}

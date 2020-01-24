@@ -36,7 +36,7 @@
 
                     <br>
 
-                    <a href="{{ event.ticketUrl }}" target="_blank" class="btn btn-primary btn-lg">Réserver mon billet</a>
+                    <a href="{{ event.ticketUrl }}" target="_blank" class="btn btn-primary btn-lg">{% trans %}Réserver mon billet{% endtrans %}</a>
                 </div>
             </div>
         </div>
@@ -49,25 +49,15 @@
             {# Main contain #}
             <div class="col-xs-12 col-sm-12 col-md-9" style="padding-right: 1% !important;">
 
-                    {% if is_granted('ROLE_USER') %}
-                        <div style="padding-bottom: 3%;">
-                            <a class="btn btn-primary" href="{{ path('event_index') }}">back to list</a>
-
-                            <a class="btn btn-primary" href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
-
-                            <a class="btn btn-primary" href="{{ path('event_delete', {'id': event.id}) }}">delete</a>
-                        </div>
-                    {% endif %}
-
-                    <h4>Dates:</h4>
+                    <h4>{% trans %}Dates:{% endtrans %}</h4>
 
                     <p>{{ event.date ? event.date|date('l d F Y') : '00H00' }} at {{ event.date ? event.date|date('H:i') : '00H00' }}</p>
 
-                    <h4>Description:</h4>
+                    <h4>{% trans %}Description:{% endtrans %}</h4>
 
                     <p>{{ event.description|raw }}</p>
 
-                    <h4>Artists:</h4>
+                    <h4>{% trans %}Artists:{% endtrans %}</h4>
                 
                     {% for artist in event.artists %}                            
                         <span class="badge badge-primary" style="font-size: 0.75em;">{{ artist }}</span>

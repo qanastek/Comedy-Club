@@ -17,10 +17,10 @@ easy_admin:
                 - { property: "prix", type: "money", type_options: { currency: 'EUR' }, label: "Prix" }
                 - { property: "ticket_url", type: "url", label: "Lien billeterie" }
                 - { property: "seats", label: "Places disponibles" }
-                - { property: "location", label: "Lieu" }
+                - { property: "location", label: "Lieu", type_options: { required: true } }
 
                 - { type: 'group', columns: 4, label: 'Informations complémentaire' }
-                - { property: "imageFile", type: "vich_image", label: "Miniature" }
+                - { property: "imageFile", type: "vich_image", label: "Miniature", type_options: { required: true } }
                 - { property: "enabled", type: "checkbox", label: "Cacher" }
         list:
             title: "Spectacles"

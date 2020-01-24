@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1 style="font-weight: 300; letter-spacing: 4px; text-transform: uppercase;">LE POST</h1>
+
+                <hr style="width: 80px; padding-bottom: 3%;" align="left" size="50" class="hr1">
+
+                <img
+                    src="{{ vich_uploader_asset(article, 'thumbnailFile') }}"
+                    style="
+                        width: 20vw;
+                        height: 20vw;
+                        object-fit: cover;
+                        overflow: hidden;
+                    "
+                >
+
+                <p>
+                    {{ article.author.username }}
+                </p>
+                <p>
+                    {{ article.updatedAt|date("d M Y \\à h\\Hm") }}
+                </p>
+
+                <p>
+                    {{ article.title|capitalize }}
+                </p>
+                <p>
+                    {{ article.content|raw }}
+                </p>
+            </div>
+        </div>
+    </div>
+</article>
+
+{% endblock %}

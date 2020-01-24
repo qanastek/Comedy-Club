@@ -2,3 +2,25 @@ easy_admin:
   entities:
     Location:
         class: App\Entity\Location
+        form:
+            title: "Ajout d'un lieu"
+            fields:
+                - { property: 'name', type: 'text', label: "Nom" }
+                - { property: 'address', type: 'text', label: "Adresse" }
+                - { property: 'city', type: 'text', label: "Ville" }
+                - { property: 'postal_code', type: "text" }
+                - { property: 'country', type: "text" }
+                - { property: 'gmap_url', type: 'url', label: "Lien vers Google Map" }
+                - { property: 'latitude' }
+                - { property: 'longitude' }
+        list:
+            title: "Lieux"
+            fields:
+                - { property: 'name', type: 'text', label: "Nom" }
+                - { property: 'address', type: 'text', label: "Adresse" }
+                - { property: 'city', type: 'text', label: "Ville" }
+                - { property: 'postal_code', type: "text" }
+                - { property: 'country', type: "text" }
+            actions:
+                - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary' }
+                - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger' }

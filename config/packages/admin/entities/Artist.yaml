@@ -6,7 +6,7 @@ easy_admin:
             fields:
                 - { property: "name", type: "text", label: "Nom" }
                 - { property: "description", type: "text_editor", label: "Description" }
-                - { property: "thumbnailFile", type: "vich_image", label: "Miniature" }
+                - { property: "thumbnailFile", type: "vich_image", label: "Miniature", type_options: { required: true } }
                 - { property: "facebook_url", type: "url", label: "Facebook" }
                 - { property: "twitter_url", type: "url", label: "Twitter" }
                 - { property: "instagram_url", type: "url", label: "Instagram" }
@@ -16,7 +16,7 @@ easy_admin:
             fields:
                 - { property: 'thumbnail', type: 'image', base_path: '%uploads_path_artists%' }
                 - { property: 'name', type: 'text' }
-                - { property: 'activated', type: 'toggle' }
+                - { property: 'activated', type: 'toggle', label: "Cacher" }
             actions:
                 - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary' }
                 - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger' }

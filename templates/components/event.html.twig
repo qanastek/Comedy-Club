@@ -1,29 +1,33 @@
-<h1 style="font-weight: 300; letter-spacing: 4px;">A L'AFFICHE</h1>
+<h1 style="font-weight: 300; letter-spacing: 4px;">{% trans %}A L'AFFICHE{% endtrans %}</h1>
 
 <hr style="width: 80px;" align="left" size="50" class="hr1">
 
-<h4 style="font-weight: 300; letter-spacing: 4px;">Bienvenue au Avignon Comedy Club. Venez découvrir les sketchs d'humoristes amateurs et professionnel dans une ambiance chaleureuse.</h4>
+<h4 style="font-weight: 300; letter-spacing: 4px;">
+    {% trans %}Bienvenue au Avignon Comedy Club. Venez découvrir les sketchs d'humoristes amateurs et professionnel dans une ambiance chaleureuse.{% endtrans %}
+</h4>
 
-<br>
-<br>
-
-{% for event in events %}
-<div class="col-md-3 col-xs-6 col-sm-4" style="text-align: left; font-family: 'Roboto', sans-serif;">
-    <a style="cursor: pointer;" href="{{ path('event_infos', {'id': event.id}) }}">
-        <img 
-            src="{{ vich_uploader_asset(event, 'imageFile') }}"
-            class="img-fluid"
-            style="width: 10vw; height: 15vw; overflow: hidden; object-fit: cover; cursor: pointer !important;"
-        >
-        <p style="font-weight: 300; font-size: 1em;">
-            <span style="color: #fe8155;">
-                {{ event.title }}
-            </span>
-            <br>
-            <span>
-                {{ event.date ? event.date|date('d F Y') : 'UNKNOW' }}
-            </span>
-        </p>
-    </a>
-</div>
-{% endfor %}
+{% if events|length <= 0 %}
+    <p>{% trans %}Aucun évènements à l'affiche{% endtrans %}</p>
+{% else %}
+    <br><br>
+    {% for event in events %}
+    <div class="col-md-3 col-xs-6 col-sm-4" style="text-align: left; font-family: 'Roboto', sans-serif;">
+        <a style="cursor: pointer;" href="{{ path('event_infos', {'id': event.id}) }}">
+            <img 
+                src="{{ vich_uploader_asset(event, 'imageFile') }}"
+                class="img-fluid"
+                style="width: 10vw; height: 15vw; overflow: hidden; object-fit: cover; cursor: pointer !important;"
+            >
+            <p style="font-weight: 300; font-size: 1em;">
+                <span style="color: #fe8155;">
+                    {{ event.title }}
+                </span>
+                <br>
+                <span>
+                    {{ event.date ? event.date|date('d F Y') : 'UNKNOW' }}
+                </span>
+            </p>
+        </a>
+    </div>
+    {% endfor %}
+{% endif %}

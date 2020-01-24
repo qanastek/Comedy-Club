@@ -12,29 +12,33 @@
 
                 <hr style="width: 80px; padding-bottom: 3%;" align="left" size="50" class="hr1">
 
-                {% for artist in artists %}
-                <div class="col-md-3 col-xs-12 text-center">
-                    <div>
-                        <img 
-                            src="{{ vich_uploader_asset(artist, 'thumbnailFile') }}"
-                            class="img-responsive"
-                            style="
-                                width: 11vw;
-                                height: 11vw;
-                                overflow: hidden;
-                                object-fit: cover;
-                                border-radius: 10em;
-                                cursor: pointer !important;
-                                margin: 0 auto;
-                            "
-                            alt=""
-                        >
+                {% if artists|length <= 0 %}
+                    <p>No artist</p>
+                {% else %}
+                    {% for artist in artists %}
+                    <div class="col-md-3 col-xs-12 text-center">
+                        <div>
+                            <img 
+                                src="{{ vich_uploader_asset(artist, 'thumbnailFile') }}"
+                                class="img-responsive"
+                                style="
+                                    width: 11vw;
+                                    height: 11vw;
+                                    overflow: hidden;
+                                    object-fit: cover;
+                                    border-radius: 10em;
+                                    cursor: pointer !important;
+                                    margin: 0 auto;
+                                "
+                                alt=""
+                            >
+                        </div>
+                        <div style="text-transform: capitalize; margin-top: 3%;">
+                            {{ artist.name }}
+                        </div>
                     </div>
-                    <div style="text-transform: capitalize; margin-top: 3%;">
-                        {{ artist.name }}
-                    </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
+                {% endif %}
 
             </div>
         </div>

@@ -1,3 +1,20 @@
+:root {
+    --theme-primary: #ffd400;
+}
+
+article p {
+    font-size: 0.8em;
+}
+
+p {
+    /* margin-top: 0%;
+    margin-bottom: 1.25em;
+    margin-left: 0%;
+    margin-right: 0%; */
+    margin: 0%;
+    padding: 0%;
+}
+
 .btn-primary {
     font-size: .778em;
     font-weight: 600;
@@ -5,8 +22,8 @@
     border-width: 2px;
     border-radius: 4px;
     color: #4a4850;
-    background-color: #ffd400;
-    border-color: #ffd400;
+    background-color: var(--theme-primary);
+    border-color: var(--theme-primary);
 }
 
 .btn-primary:hover {
@@ -15,8 +32,8 @@
     padding: 10px 26px;
     border-width: 2px;
     border-radius: 4px;
-    border-color: #ffd400;
-    color: #ffd400;
+    border-color: var(--theme-primary);
+    color: var(--theme-primary);
     background-color: transparent;
 }
 
@@ -75,9 +92,9 @@
 }
 
 .badge-primary {
-    color: #ffd400;
+    color: var(--theme-primary);
     background-color: transparent;
-    border: 1px solid #ffd400;
+    border: 1px solid var(--theme-primary);
 }
 
 .location-info {
@@ -110,4 +127,208 @@
 .btn-twitter {
     color: #fff;
     background-color: #55acee !important;
+}
+
+.post_title_url
+{
+	color: #191919;
+	font-family: Merriweather, Helvetica Neue, Arial, sans-serif;
+	font-size: 1.5em;
+	margin-bottom: 15px;
+	font-weight: 400;
+}
+
+.post_title_url:hover
+{
+	text-decoration-color: #191919;
+}
+
+.article_author {
+    color: #B7B7B7;
+    padding-bottom: 1em;
+}
+
+.content_post
+{
+	color: #191919;
+	font-family: Merriweather, Helvetica Neue, Arial, sans-serif;
+	font-size: 0.8em;
+    padding-bottom: 1.5em;
+}
+
+.content_post p
+{
+	color: #191919;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1em;
+}
+
+.content_post h1
+{
+	color: #191919;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 2.4em;
+}
+
+.content_post h2
+{
+	color: #191919;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 2em;
+}
+
+.content_post h3
+{
+	color: #191919;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1.6em;
+}
+
+.content_post h4
+{
+	color: #191919;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1.4em;
+}
+
+.content_post strong
+{
+	color: #191919;
+}
+
+.articles img {
+    cursor: pointer !important;
+}
+
+.ReadMoreBtn
+{
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #ffffff;
+	font-family: Arial;
+    font-size: 0.7em;
+    text-decoration: none;
+
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 0%;
+	border: 0px;
+
+	padding-top: 2%;
+	padding-bottom: 2%;
+	padding-left: 3%;
+	padding-right: 3%;
+	background-color: var(--theme-primary);
+}
+
+.ReadMoreBtn:hover {
+	filter: brightness(96%);
+}
+
+.ReadMoreBtn:active {
+	position: relative;
+	top: 1px;
+}
+
+.side_bar_title
+{
+	text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    line-height: 1.364;
+    font-family: Merriweather, Helvetica Neue, Arial, sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.side_bar_title::before
+{
+    align-self: center;
+    background-color: #191919;
+    content: "\a0";
+    -moz-flex-grow: 1;
+    flex-grow: 1;
+    -ms-flex-positive: 1;
+    height: 1px;
+}
+
+.side_bar_title::after
+{
+    align-self: center;
+    background-color: #191919;
+    content: "\a0";
+    -moz-flex-grow: 1;
+    flex-grow: 1;
+    -ms-flex-positive: 1;
+    height: 1px;
+}
+
+.side_bar_title span
+{
+    display: inline-block;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    padding: 0 15px;
+}
+
+* {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-kerning: auto;
+}
+
+.side_title_post_actualite
+{
+	text-align: left;
+	font-size: 1.2em;
+    line-height: 1.2;
+    margin-top: -3px;
+    font-family: Merriweather, Helvetica Neue, Arial, sans-serif;
+}
+
+.side_title_post_actualite p
+{
+    margin-bottom: 0.5em;
+}
+
+.side_description_post
+{
+    color: #B7B7B7;
+	text-align: left;
+    margin: 0%;
+}
+
+.post_title_actualite
+{
+	color: #191919;
+	font-family: Merriweather, Helvetica Neue, Arial, sans-serif;
+	font-size: 0.8em;
+	margin-bottom: 15px;
+	font-weight: 400;
+}
+
+.custom_font
+{
+	font-family: Merriweather, Helvetica Neue, Arial, sans-serif;
+}
+
+.fa-gradient-facebook {
+	background: linear-gradient(0.25turn, #00c6ff, #0072ff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.fa-gradient-instagram {
+	background: linear-gradient(0.60turn, #833ab4, #fd1d1d, #fcb045);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.fa-gradient-twitter {
+	background-color: #1da1f2;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }

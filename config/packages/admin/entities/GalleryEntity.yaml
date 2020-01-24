@@ -14,7 +14,7 @@ easy_admin:
                 - { property: 'thumbnail', type: 'image', base_path: '%uploads_path_gallery%' }
                 - { property: 'name', type: 'text' }
                 - { property: 'category' }
-                - { property: 'activated', type: 'toggle' }
+                - { property: 'activated', type: 'toggle', label: "Cacher" }
             actions:
                 - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary' }
                 - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger' }

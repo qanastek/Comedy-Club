@@ -16,19 +16,22 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="{{ path('index') }}">Accueil</a>
+                    <a href="{{ path('index') }}">{% trans %}Accueil{% endtrans %}</a>
                 </li>
                 <li>
-                    <a href="{{ path('a_laffiche') }}">A l'affiche</a>
+                    <a href="{{ path('a_laffiche') }}">{% trans %}A l'affiche{% endtrans %}</a>
                 </li>
                 <li>
-                    <a href="{{ path('artists') }}">Artistes</a>
+                    <a href="{{ path('blog') }}">{% trans %}L'actualité{% endtrans %}</a>
                 </li>
                 <li>
-                    <a href="{{ path('gallery') }}">Gallerie</a>
+                    <a href="{{ path('artists') }}">{% trans %}Artistes{% endtrans %}</a>
                 </li>
                 <li>
-                    <a href="{{ path('a_propos') }}">A PROPOS</a>
+                    <a href="{{ path('gallery') }}">{% trans %}Gallerie{% endtrans %}</a>
+                </li>
+                <li>
+                    <a href="{{ path('a_propos') }}">{% trans %}A PROPOS{% endtrans %}</a>
                 </li>
             </ul>
         </div>
