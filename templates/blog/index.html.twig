@@ -5,7 +5,7 @@
 {% block body %}
 <article>
     <div class="container">
-        <div class="row">
+        <div class="row news">
             <div class="col-md-12">
 
                 <h1 style="font-weight: 300; letter-spacing: 4px; text-transform: uppercase;">L'ACTUALITÉ</h1>
@@ -74,9 +74,9 @@
                 </div>
                 <div class="col-md-4" style="padding-left: 3%; padding-right: 3%;">
                         
-                    <div class="row" style="padding-bottom: 10%;">
+                    <div class="row" style="padding-bottom: 4%;">
 
-                        <p class="side_bar_title">
+                        <p class="side_bar_title" style="padding-bottom: 4%;">
                             <span>Nous Suivre</span>
                         </p>
 
@@ -128,7 +128,7 @@
                     <div class="row">
 
                         <!-- derniers articles -->
-                        <p class="side_bar_title">
+                        <p class="side_bar_title" style="padding-bottom: 6%;">
                             <span>Derniers Articles</span>
                         </p>
                         
@@ -168,7 +168,7 @@
                                         </a>
 
                                         <p class="side_description_post">
-                                            Par <i class="custom_font" style="color: #404040; font-weight: bold; font-family: Merriweather, Helvetica Neue, Arial, sans-serif;">{{ article.author.username }}</i>
+                                            Par <i class="custom_font author_side">{{ article.author.username }}</i>
                                         </p>
 
                                     </div>

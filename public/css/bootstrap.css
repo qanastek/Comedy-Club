@@ -1150,12 +1150,6 @@ hr {
   border: 0;
   border-top: 1px solid #eee;
 }
-.hr1 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 0;
-  border-top: 1.5px solid #fe8155;
-}
 .sr-only {
   position: absolute;
   width: 1px;
